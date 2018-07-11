@@ -14,6 +14,8 @@
 #'   \item opt: The colormap "movie" (A: magma; B: inferno; C: plasma;
 #'   D: hp; E: cividis)
 #' }
+#'
+#' @export
 "hp.map"
 
 
