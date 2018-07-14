@@ -31,7 +31,7 @@
 #' subsequent graphics by \code{palette(cv)}, a \code{col =} specification in
 #' graphics functions or in \code{par}.
 #'
-#' @author Alejandro Jiménez Rico \email{aljrico@gmail.com}, \href{https://aljrico.github.io}{Personal Blog}
+#' @author Alejandro Jiménez Rico \email{aljrico@@gmail.com}, \href{https://aljrico.github.io}{Personal Blog}
 #'
 #' @details
 #'
@@ -102,11 +102,10 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 #'
 #' @return  \code{hpMap} returns a \code{n} lines data frame containing the
 #' red (\code{R}), green (\code{G}), blue (\code{B}) and alpha (\code{alpha})
-#' channels of \code{n} equally spaced colors along the 'hp' color map.
-#' \code{n = 256} by default, which corresponds to the data from the original
-#' 'hp' color map in Matplotlib.
+#' channels of \code{n} equally spaced colors along the 'Harry Potter' colour map.
+#' \code{n = 256} by default.
 #'
-hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) { # nocov start
+hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
 		stop("begin and end must be in [0,1]")
 	}
@@ -134,7 +133,7 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
 	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
 	data.frame(R = cols[, 1], G = cols[, 2], B = cols[, 3], alpha = alpha)
-} # nocov end
+}
 
 #' @export
 hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie= 1) {
@@ -163,16 +162,16 @@ scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 #' @export
 scale_colour_hp <- scale_color_hp
 
-#' hp color scales
+#' Harry Potter colour scales
 #'
-#' Uses the hp color scale.
+#' Uses the Harry Potter color scale.
 #'
 #' For \code{discrete == FALSE} (the default) all other arguments are as to
 #' \link[ggplot2]{scale_fill_gradientn} or \link[ggplot2]{scale_color_gradientn}.
 #' Otherwise the function will return a \code{discrete_scale} with the plot-computed
 #' number of colors.
 #'
-#' See \link[harrypotter]{hp} for more information on the color scale.
+#' See \link[harrypotter]{http://movie-colors.com/hp/} for more information on the colour scale.
 #'
 #' @param ... parameters to \code{discrete_scale} or \code{scale_fill_gradientn}
 #'
@@ -191,8 +190,7 @@ scale_colour_hp <- scale_color_hp
 #'
 #' @rdname scale_hp
 #'
-#' @author Noam Ross \email{noam.ross@@gmail.com} / \href{https://twitter.com/noamross}{@@noamross} (continuous version),
-#'         Bob Rudis \email{bob@@rud.is} / \href{https://twitter.com/hrbrmstr}{@@hrbrmstr} (combined version)
+#' @author Alejandro Jiménez Rico \email{aljrico@@gmail.com}
 #'
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #'
@@ -234,12 +232,15 @@ scale_colour_hp <- scale_color_hp
 #'   theme(panel.grid=element_blank()) -> gg
 #'
 #' grid.arrange(
-#'   gg + scale_fill_hp(movie="A") + labs(x="Virdis A", y=NULL),
-#'   gg + scale_fill_hp(movie="B") + labs(x="Virdis B", y=NULL),
-#'   gg + scale_fill_hp(movie="C") + labs(x="Virdis C", y=NULL),
-#'   gg + scale_fill_hp(movie=1) + labs(x="Virdis D", y=NULL),
-#'   gg + scale_fill_hp(movie="E") + labs(x="Virdis E", y=NULL),
-#'   ncol=3, nrow=2
+#'   gg + scale_fill_hp(movie=1) + labs(x="Harry Potter and the Philosopher's Stone", y=NULL),
+#'   gg + scale_fill_hp(movie=2) + labs(x="Harry Potter and the Chamber of Secrets", y=NULL),
+#'   gg + scale_fill_hp(movie=3) + labs(x="Harry Potter and the Prisoner of Azkaban", y=NULL),
+#'   gg + scale_fill_hp(movie=4) + labs(x="Harry Potter and the Goblet of Fire", y=NULL),
+#'   gg + scale_fill_hp(movie=5) + labs(x="Harry Potter and the Order of Phoenix", y=NULL),
+#'   gg + scale_fill_hp(movie=6) + labs(x="Harry Potter and the Half Blood Prince", y=NULL),
+#'   gg + scale_fill_hp(movie=7) + labs(x="Harry Potter and the Deathly Hallows, Part 1", y=NULL),
+#'   gg + scale_fill_hp(movie=8) + labs(x="Harry Potter and the Deathly Hallows  Part 2", y=NULL),
+#'   ncol=4, nrow=4
 #' )
 #'
 #' @export
