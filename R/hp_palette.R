@@ -109,6 +109,9 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 		end <- tmp
 	}
 
+	load("data/hp.map")
+	hp.map <- map
+
 	map <- hp.map[hp.map$movie == movie, ]
 	map_cols <- grDevices::rgb(map$R, map$G, map$B)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
@@ -139,6 +142,9 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 		begin <- end
 		end <- tmp
 	}
+
+	load("data/hp.map")
+	hp.map <- map
 
 	map <- hp.map[hp.map$movie == movie, ]
 	map_cols <- grDevices::rgb(map$R, map$G, map$B)
