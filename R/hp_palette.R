@@ -15,9 +15,9 @@
 #'   D: hp; E: cividis)
 #' }
 #'
-#'
-"hp.map"
-
+#'@export
+load("data/hp.map")
+hp.map <- map
 
 #' Matplotlib 'hp' and 'cividis' color map
 #'
@@ -109,7 +109,7 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 		end <- tmp
 	}
 
-	map <- hp.map[hp.map$opt == movie, ]
+	map <- hp.map[hp.map$movie == movie, ]
 	map_cols <- grDevices::rgb(map$R, map$G, map$B)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
 	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
@@ -140,7 +140,7 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 		end <- tmp
 	}
 
-	map <- hp.map[hp.map$opt == movie, ]
+	map <- hp.map[hp.map$movie == movie, ]
 	map_cols <- grDevices::rgb(map$R, map$G, map$B)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
 	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
