@@ -144,11 +144,13 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 		end <- tmp
 	}
 
+
 	load("data/hp.map")
 	hp.map <- map
+	colnames(hp.map) <- c("R", "G", "B", "movie")
 
 	map <- hp.map[hp.map$movie == movie, ]
-	map_cols <- grDevices::rgb(map$R, map$G, map$B)
+	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
 	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
 	data.frame(R = cols[, 1], G = cols[, 2], B = cols[, 3], alpha = alpha)
