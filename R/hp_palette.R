@@ -70,8 +70,8 @@
 #'
 #'
 #' @export
-load("data/hp.map")
-hp.map <- map
+load("data/harrypotter::hp.map")
+harrypotter::hp.map <- map
 
 
 #'
@@ -95,11 +95,11 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 	if(movie == 7.1) movie <- 7
 	if(movie == 7.2) movie <- 8
 
-	load("data/hp.map")
-	hp.map <- map
-	colnames(hp.map) <- c("R", "G", "B", "movie")
+	load("data/harrypotter::hp.map")
+	harrypotter::hp.map <- map
+	colnames(harrypotter::hp.map) <- c("R", "G", "B", "movie")
 
-	map <- hp.map[hp.map$movie == movie, ]
+	map <- harrypotter::hp.map[harrypotter::hp.map$movie == movie, ]
 	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
 	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
@@ -130,14 +130,14 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 	}
 
 
-	load("data/hp.map")
-	hp.map <- map
-	colnames(hp.map) <- c("R", "G", "B", "movie")
+	load("data/harrypotter::hp.map")
+	harrypotter::hp.map <- map
+	colnames(harrypotter::hp.map) <- c("R", "G", "B", "movie")
 
 	if(movie == 7.1) movie <- 7
 	if(movie == 7.2) movie <- 8
 
-	map <- hp.map[hp.map$movie == movie, ]
+	map <- harrypotter::hp.map[harrypotter::hp.map$movie == movie, ]
 	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
 	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
