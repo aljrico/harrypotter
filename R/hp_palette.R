@@ -66,6 +66,15 @@
 #'   col = hp(n, movie = 1),
 #'   xlab = "hp n", ylab = "", xaxt = "n", yaxt = "n", bty = "n"
 #' )
+#'
+#'
+#'
+#' @export
+load("data/hp.map")
+hp.map <- map
+
+
+#'
 #' @export
 #'
 hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
@@ -251,5 +260,4 @@ scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 	} else {
 		scale_fill_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie), ...)
 	}
-
 }
