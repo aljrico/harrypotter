@@ -69,9 +69,8 @@
 #'
 #'
 #'
-#' @export
-load("data/hp.map")
-hp.map <- map
+#' @format A data frame with 8 variables, one for each movie of the franchise.
+"hp.map"
 
 
 #'
@@ -95,8 +94,7 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 	if(movie == 7.1) movie <- 7
 	if(movie == 7.2) movie <- 8
 
-	load("data/hp.map")
-	hp.map <- map
+	hp.map <- harrypotter::hp.map
 	colnames(hp.map) <- c("R", "G", "B", "movie")
 
 	map <- hp.map[hp.map$movie == movie, ]
@@ -130,8 +128,7 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 	}
 
 
-	load("data/hp.map")
-	hp.map <- map
+	hp.map <- harrypotter::hp.map
 	colnames(hp.map) <- c("R", "G", "B", "movie")
 
 	if(movie == 7.1) movie <- 7
