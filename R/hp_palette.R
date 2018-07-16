@@ -4,6 +4,11 @@
 #'
 #'  Sources: \url{http://movie-colors.com/hp/}..
 #'
+#'
+#' @format A data frame with 8 variables, one for each movie of the franchise.
+"hp.map"
+
+
 
 #' Harry Potter Colour Map.
 #'
@@ -68,9 +73,6 @@
 #' )
 #'
 #'
-#'
-#' @format A data frame with 8 variables, one for each movie of the franchise.
-"hp.map"
 
 
 #'
