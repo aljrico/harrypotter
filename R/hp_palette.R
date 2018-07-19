@@ -96,7 +96,7 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
 	if(movie == 7.1) movie <- 7
 	if(movie == 7.2) movie <- 8
 
-	hp.map <- harrypotter::hp.map
+	hp.map <- harrypotter:::hp.map
 	colnames(hp.map) <- c("R", "G", "B", "movie")
 
 	map <- hp.map[hp.map$movie == movie, ]
@@ -130,7 +130,7 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 	}
 
 
-	hp.map <- harrypotter::hp.map
+	hp.map <- harrypotter:::hp.map
 	colnames(hp.map) <- c("R", "G", "B", "movie")
 
 	if(movie == 7.1) movie <- 7
