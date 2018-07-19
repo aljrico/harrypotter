@@ -30,7 +30,7 @@ Install **viridis** like any R package:
 
 ```{r}
 library(devtools)
-devtools::install_github("aljrico/harrypotter")
+devtools::install_github("aljrico/harrypotter", force = TRUE)
 library(harrypotter)
 ```
 

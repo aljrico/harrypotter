@@ -4,6 +4,8 @@
 #'
 #'  Sources: \url{http://movie-colors.com/hp/}..
 #'
+#'@format asdf
+"hp.map"
 
 
 
