@@ -1,13 +1,14 @@
-### Short Description
+# Harry Potter Colour Palette
 
 Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
+The colours have been extracted taking the average of every frame from every movie of the Harry Potter film series.
+You can install this package **harrypotter** from this repository. 
 
-Install **harrypotter** from this repository:
+Just copy and execute this bunch of code:
 
 ``` r
 library(devtools)
-devtools::install_github("aljrico/harrypotter", force = TRUE)
-library(harrypotter)
+devtools::install_github("aljrico/harrypotter")
 ```
 
 For base plots, use the `hp()` function to generate a palette:
@@ -37,7 +38,7 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
 Introduction
 ============
 
-The [**harrypotter**](http:://github.com/aljrico/harrypotter) package brings to R colour scales created by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
+The [**harrypotter**](http:://github.com/aljrico/harrypotter) package brings to R colour scales extracted by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
 
 The Colour Scales
 =================
