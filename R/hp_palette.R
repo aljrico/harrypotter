@@ -76,10 +76,14 @@
 
 #' @importFrom harrypotterLite hp
 #'
+#' @export
+hp <- harrypotterLite::hp
+
+#'
 #'  @export
 hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie= 1) {
 	function(n) {
-		harrypotter::hp(n, alpha, begin, end, direction, movie)
+		harrypotterLite::hp(n, alpha, begin, end, direction, movie)
 	}
 }
 
