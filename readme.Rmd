@@ -3,14 +3,11 @@ title: "The Harry Potter Colour Palettes"
 author:
   - "Alejandro Jiménez Rico"
 date: "`r Sys.Date()`"
-output: 
-  rmarkdown::html_vignette:
+output:
+  md_document:
+    variant: markdown_github
     toc: true
     toc_depth: 1
-vignette: >
-  %\VignetteIndexEntry{The Harry Potter Colour Palettes}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 <style>
