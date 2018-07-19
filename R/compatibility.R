@@ -14,4 +14,4 @@
 #' }
 #'
 #' @export
-viridis.map <- harrypotterLite:::hp.map
+hp.map <- harrypotterLite:::hp.map
