@@ -74,76 +74,9 @@
 #'
 #'
 
-
+#' @importFrom harrypotterLite hp
 #'
-#' @export
-#'
-hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
-	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
-		stop("begin and end must be in [0,1]")
-	}
-
-	if (abs(direction) != 1) {
-		stop("direction must be 1 or -1")
-	}
-
-	if (direction == -1) {
-		tmp <- begin
-		begin <- end
-		end <- tmp
-	}
-
-	if(movie == 7.1) movie <- 7
-	if(movie == 7.2) movie <- 8
-
-	hp.map <- harrypotter:::hp.map
-	colnames(hp.map) <- c("R", "G", "B", "movie")
-
-	map <- hp.map[hp.map$movie == movie, ]
-	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
-	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
-	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
-	grDevices::rgb(cols[, 1], cols[, 2], cols[, 3], alpha = alpha)
-}
-
-
-#' @rdname hp
-#'
-#' @return  \code{hpMap} returns a \code{n} lines data frame containing the
-#' red (\code{R}), green (\code{G}), blue (\code{B}) and alpha (\code{alpha})
-#' channels of \code{n} equally spaced colors along the 'Harry Potter' colour map.
-#' \code{n = 256} by default.
-#'
-hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie = 1) {
-	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
-		stop("begin and end must be in [0,1]")
-	}
-
-	if (abs(direction) != 1) {
-		stop("direction must be 1 or -1")
-	}
-
-	if (direction == -1) {
-		tmp <- begin
-		begin <- end
-		end <- tmp
-	}
-
-
-	hp.map <- harrypotter:::hp.map
-	colnames(hp.map) <- c("R", "G", "B", "movie")
-
-	if(movie == 7.1) movie <- 7
-	if(movie == 7.2) movie <- 8
-
-	map <- hp.map[hp.map$movie == movie, ]
-	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
-	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
-	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
-	data.frame(R = cols[, 1], G = cols[, 2], B = cols[, 3], alpha = alpha)
-}
-
-#' @export
+#'  @export
 hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie= 1) {
 	function(n) {
 		harrypotter::hp(n, alpha, begin, end, direction, movie)
