@@ -2,7 +2,7 @@ Package: harrypotter
 Type: Package
 Title: Palettes Generated from All "Harry Potter" Movies.
 Version: 0.1.0
-Authors@R:  person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre"))
+Authors@R: person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre"))
 Description: This package offers the possibility of using the characteristic palette present in all Harry Potter movies. Colours obtained by averaging the mean colour from every scene of each movie.
 License: MIT
 Encoding: UTF-8
@@ -16,3 +16,6 @@ Suggests:
     covr
 URL: https://github.com/aljrico/harrypotter
 BugReports: https://github.com/aljrico/harrypotter/issues
+Imports: harrypotterLite
+RoxygenNote: 6.0.1
+Remotes: aljrico/harrypotterLite
