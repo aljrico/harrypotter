@@ -1,40 +1,12 @@
--   [tl;dr](#tldr)
--   [Introduction](#introduction)
--   [The Colour Scales](#the-colour-scales)
--   [Usage](#usage)
-
-<style>
-img {
-    max-width: 100%;
-    max-height: 100%;
-}
-</style>
-tl;dr
-=====
+### Short Description
 
 Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
 
-Install **viridis** like any R package:
+Install **harrypotter** from this repository:
 
 ``` r
 library(devtools)
 devtools::install_github("aljrico/harrypotter", force = TRUE)
-```
-
-    ## Downloading GitHub repo aljrico/harrypotter@master
-    ## from URL https://api.github.com/repos/aljrico/harrypotter/zipball/master
-
-    ## Installing harrypotter
-
-    ## '/usr/lib64/R/bin/R' --no-site-file --no-environ --no-save --no-restore  \
-    ##   --quiet CMD INSTALL  \
-    ##   '/tmp/RtmpjptywS/devtools3ed021f9ef61/aljrico-harrypotter-26ad95a'  \
-    ##   --library='/home/aljrico/.R/x86_64-pc-linux-gnu-library/3.4'  \
-    ##   --install-tests
-
-    ## 
-
-``` r
 library(harrypotter)
 ```
 
@@ -91,20 +63,7 @@ unemp$county <- gsub("^(.*) parish, ..$","\\1", unemp$county)
 unemp$state <- gsub("^.*([A-Z]{2}).*$", "\\1", unemp$name)
 
 county_df <- map_data("county", projection = "albers", parameters = c(39, 45))
-```
 
-    ## 
-    ## Attaching package: 'maps'
-
-    ## The following object is masked _by_ '.GlobalEnv':
-    ## 
-    ##     unemp
-
-    ## The following object is masked from 'package:harrypotter':
-    ## 
-    ##     map
-
-``` r
 names(county_df) <- c("long", "lat", "group", "order", "state_name", "county")
 county_df$state <- state.abb[match(county_df$state_name, tolower(state.name))]
 county_df$state_name <- NULL
