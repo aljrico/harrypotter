@@ -55,7 +55,7 @@ For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
-  scale_fill_hp(movie = 3) + theme_bw()
+  scale_fill_hp(movie = "slytherin") + theme_bw()
 ```
 
 # Introduction
