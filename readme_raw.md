@@ -26,22 +26,9 @@ devtools::install_github("aljrico/harrypotter", force = TRUE)
 
     ## Installing harrypotter
 
-    ## Downloading GitHub repo aljrico/harrypotterLite@master
-    ## from URL https://api.github.com/repos/aljrico/harrypotterLite/zipball/master
-
-    ## Installing harrypotterLite
-
     ## '/usr/lib64/R/bin/R' --no-site-file --no-environ --no-save --no-restore  \
     ##   --quiet CMD INSTALL  \
-    ##   '/tmp/RtmpQ83lA6/devtools15dd275609b5/aljrico-harrypotterLite-75c67e3'  \
-    ##   --library='/home/aljrico/.R/x86_64-pc-linux-gnu-library/3.4'  \
-    ##   --install-tests
-
-    ## 
-
-    ## '/usr/lib64/R/bin/R' --no-site-file --no-environ --no-save --no-restore  \
-    ##   --quiet CMD INSTALL  \
-    ##   '/tmp/RtmpQ83lA6/devtools15dd13aadeae/aljrico-harrypotter-1f511d5'  \
+    ##   '/tmp/Rtmp7MsGTG/devtools19ad7960da13/aljrico-harrypotter-909dfba'  \
     ##   --library='/home/aljrico/.R/x86_64-pc-linux-gnu-library/3.4'  \
     ##   --install-tests
 
@@ -145,6 +132,48 @@ ggplot(choropleth, aes(long, lat, group = group)) +
 ```
 
 <img src="readme_raw_files/figure-markdown_github/ggplot2-1.png" width="672" />
+
+``` r
+ggplot(choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
+  geom_polygon(data = state_df, colour = "white", fill = NA) +
+  coord_fixed() +
+  theme_minimal() +
+  ggtitle("US unemployment rate by county") +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank()) +
+  scale_fill_hp(movie="slytherin")
+```
+
+<img src="readme_raw_files/figure-markdown_github/ggplot2-2.png" width="672" />
+
+``` r
+ggplot(choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
+  geom_polygon(data = state_df, colour = "white", fill = NA) +
+  coord_fixed() +
+  theme_minimal() +
+  ggtitle("US unemployment rate by county") +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank()) +
+  scale_fill_hp(movie="ravenclaw")
+```
+
+<img src="readme_raw_files/figure-markdown_github/ggplot2-3.png" width="672" />
+
+``` r
+ggplot(choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
+  geom_polygon(data = state_df, colour = "white", fill = NA) +
+  coord_fixed() +
+  theme_minimal() +
+  ggtitle("US unemployment rate by county") +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank()) +
+  scale_fill_hp(movie="hufflepuff")
+```
+
+<img src="readme_raw_files/figure-markdown_github/ggplot2-4.png" width="672" />
 
 The ggplot functions also can be used for discrete scales with the argument `discrete=TRUE`.
 
