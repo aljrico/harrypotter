@@ -30,7 +30,22 @@ library(harrypotter)
 
 ### ggplot
 
-The package contains colour scale functions for **ggplot** plots: `scale_color_hp()` and `scale_fill_hp()`. You can use the other scales with the `movie` or `house` argument in the `ggplot` scales. Here the scale from the house *Gryffindor* is used for a cloropleth map of U.S. unemployment:
+The package contains colour scale functions for **ggplot** plots: `scale_color_hp()` and `scale_fill_hp()`. You can use the other scales with the `movie` or `house` argument in the `ggplot` scales. 
+
+Here is a made up example using the colours from the house of *Hufflepuff*:
+
+``` r
+library(ggplot2)
+ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
+  geom_hex() + coord_fixed() +
+  scale_fill_hp(house = "hufflepuff") + theme_bw()
+```
+
+<img src="readme_raw_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
+
+
+
+Here the scale from the house *Gryffindor* is used for a cloropleth map of U.S. unemployment:
 
 ``` r
 unemp <- read.csv("http://datasets.flowingdata.com/unemployment09.csv",
@@ -75,18 +90,6 @@ p + geom_point(size=4, aes(colour = factor(carb))) +
 ```
 
 <img src="readme_raw_files/figure-markdown_github/discrete-1.png" width="672" />
-
-
-A made up example using the colours from the house of *Hufflepuff*:
-
-``` r
-library(ggplot2)
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_hp(house = "hufflepuff") + theme_bw()
-```
-
-<img src="readme_raw_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
 
 
 ### Base R
