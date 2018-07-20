@@ -45,7 +45,7 @@ x <- y <- seq(-8*pi, 8*pi, len = 40)
 r <- sqrt(outer(x^2, y^2, "+"))
 filled.contour(cos(r^2)*exp(-r/(2*pi)), 
                axes=FALSE,
-               col = hp(n = 40, movie = "hufflepuff"),
+               col = hp(n = 40, movie = "ravenclaw"),
                asp=1)
 ```
 

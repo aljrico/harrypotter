@@ -24,8 +24,8 @@ for(i in 1:8){
 slytherin <- c("#C2C5C0", "#A6B39C", "#8BA27C", "#6A915F", "#4C7F46", "#316E31", "#1F5D25")
 gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
 hufflepuff <- c("#000000", "#372E29", "#726255", "#F0C75E", "#ECB939")
-ravenclaw2 <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
-ravenclaw <- c("#DE4811", "#0D6585")
+ravenclaw <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
+
 
 
 complete_palette <- function(house, n = 100000){
