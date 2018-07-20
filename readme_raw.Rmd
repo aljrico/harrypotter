@@ -21,7 +21,7 @@ img {
 
 Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
 
-Install **viridis** like any R package:
+Install **hp** like any R package:
 
 ```{r}
 library(devtools)

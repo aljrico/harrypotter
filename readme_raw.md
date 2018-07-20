@@ -1,14 +1,54 @@
-# Harry Potter Colour Palette
+-   [tl;dr](#tldr)
+-   [Introduction](#introduction)
+-   [The Colour Scales](#the-colour-scales)
+-   [Usage](#usage)
+
+<style>
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+</style>
+tl;dr
+=====
 
 Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
-The colours have been extracted taking the average of every frame from every movie of the Harry Potter film series.
-You can install this package **harrypotter** from this repository. 
 
-Just copy and execute this bunch of code:
+Install **hp** like any R package:
 
 ``` r
 library(devtools)
-devtools::install_github("aljrico/harrypotter")
+devtools::install_github("aljrico/harrypotter", force = TRUE)
+```
+
+    ## Downloading GitHub repo aljrico/harrypotter@master
+    ## from URL https://api.github.com/repos/aljrico/harrypotter/zipball/master
+
+    ## Installing harrypotter
+
+    ## Downloading GitHub repo aljrico/harrypotterLite@master
+    ## from URL https://api.github.com/repos/aljrico/harrypotterLite/zipball/master
+
+    ## Installing harrypotterLite
+
+    ## '/usr/lib64/R/bin/R' --no-site-file --no-environ --no-save --no-restore  \
+    ##   --quiet CMD INSTALL  \
+    ##   '/tmp/RtmpQ83lA6/devtools15dd275609b5/aljrico-harrypotterLite-75c67e3'  \
+    ##   --library='/home/aljrico/.R/x86_64-pc-linux-gnu-library/3.4'  \
+    ##   --install-tests
+
+    ## 
+
+    ## '/usr/lib64/R/bin/R' --no-site-file --no-environ --no-save --no-restore  \
+    ##   --quiet CMD INSTALL  \
+    ##   '/tmp/RtmpQ83lA6/devtools15dd13aadeae/aljrico-harrypotter-1f511d5'  \
+    ##   --library='/home/aljrico/.R/x86_64-pc-linux-gnu-library/3.4'  \
+    ##   --install-tests
+
+    ## 
+
+``` r
+library(harrypotter)
 ```
 
 For base plots, use the `hp()` function to generate a palette:
@@ -22,7 +62,7 @@ filled.contour(cos(r^2)*exp(-r/(2*pi)),
                asp=1)
 ```
 
-<img src="readme_files/figure-markdown_github/tldr_base-1.png" width="672" />
+<img src="readme_raw_files/figure-markdown_github/tldr_base-1.png" width="672" />
 
 For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
 
@@ -30,7 +70,7 @@ For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
-  scale_fill_hp(house = "hufflepuff") + theme_bw()
+  scale_fill_hp(movie = "hufflepuff") + theme_bw()
 ```
 
 <img src="readme_raw_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
@@ -38,22 +78,18 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
 Introduction
 ============
 
-The [**harrypotter**](http:://github.com/aljrico/harrypotter) package brings to R colour scales extracted by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
+The [**harrypotter**](http:://github.com/aljrico/harrypotter) package brings to R colour scales created by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
 
 The Colour Scales
 =================
 
-The package contains many colour scales, divided in different categories.
+The package contains eight color scales: One for each movie of the franchise.
 
 ### Movies
-
-One for each movie of the franchise.
 
 <img src="readme_raw_files/figure-markdown_github/show_scales-1.png" width="672" />
 
 ### Houses
-
-One for each house of Hogwarts.
 
 <img src="readme_raw_files/figure-markdown_github/show_scales2-1.png" width="672" />
 
@@ -74,7 +110,20 @@ unemp$county <- gsub("^(.*) parish, ..$","\\1", unemp$county)
 unemp$state <- gsub("^.*([A-Z]{2}).*$", "\\1", unemp$name)
 
 county_df <- map_data("county", projection = "albers", parameters = c(39, 45))
+```
 
+    ## 
+    ## Attaching package: 'maps'
+
+    ## The following object is masked _by_ '.GlobalEnv':
+    ## 
+    ##     unemp
+
+    ## The following object is masked from 'package:harrypotter':
+    ## 
+    ##     map
+
+``` r
 names(county_df) <- c("long", "lat", "group", "order", "state_name", "county")
 county_df$state <- state.abb[match(county_df$state_name, tolower(state.name))]
 county_df$state_name <- NULL
@@ -92,7 +141,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(house = "gryffindor")
+  scale_fill_hp(movie="gryffindor")
 ```
 
 <img src="readme_raw_files/figure-markdown_github/ggplot2-1.png" width="672" />
