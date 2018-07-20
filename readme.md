@@ -4,65 +4,33 @@ Use the color scales in this package to make plots that make use of the palette 
 The colours have been extracted taking the average of every frame from every movie of the Harry Potter film series.
 You can install this package **harrypotter** from this repository. 
 
-Just copy and execute this bunch of code:
-
-``` r
-library(devtools)
-devtools::install_github("aljrico/harrypotter")
-```
-
-For base plots, use the `hp()` function to generate a palette:
-
-``` r
-x <- y <- seq(-8*pi, 8*pi, len = 40)
-r <- sqrt(outer(x^2, y^2, "+"))
-filled.contour(cos(r^2)*exp(-r/(2*pi)), 
-               axes=FALSE,
-               color.palette=hp,
-               asp=1)
-```
-
-<img src="readme_files/figure-markdown_github/tldr_base-1.png" width="672" />
-
-For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
-
-``` r
-library(ggplot2)
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_hp(house = "hufflepuff") + theme_bw()
-```
-
-<img src="readme_raw_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
 
 Introduction
 ============
 
 The [**harrypotter**](http:://github.com/aljrico/harrypotter) package brings to R colour scales extracted by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
 
-The Colour Scales
-=================
 
-The package contains many colour scales, divided in different categories.
-
-### Movies
-
-One for each movie of the franchise.
-
-<img src="readme_raw_files/figure-markdown_github/show_scales-1.png" width="672" />
-
-### Houses
-
-One for each house of Hogwarts.
-
-<img src="readme_raw_files/figure-markdown_github/show_scales2-1.png" width="672" />
-
-Usage
+Installation & Usage
 =====
 
-The `hp()` function produces the Harry Potter color scale. You can choose the other color scale options using the `movie` parameter.
+### Install
 
-The package also contains color scale functions for **ggplot** plots: `scale_color_hp()` and `scale_fill_hp()`. As with `hp()`, you can use the other scales with the `movie` argument in the `ggplot` scales. Here the scale from the 7th is used for a cloropleth map of U.S. unemployment:
+Just copy and execute this bunch of code and you'll have the last version of the package installed:
+
+``` r
+library(devtools)
+devtools::install_github("aljrico/harrypotter")
+```
+Load the packages using
+
+``` r
+library(harrypotter)
+```
+
+### ggplot
+
+The package contains colour scale functions for **ggplot** plots: `scale_color_hp()` and `scale_fill_hp()`. You can use the other scales with the `movie` or `house` argument in the `ggplot` scales. Here the scale from the house *Gryffindor* is used for a cloropleth map of U.S. unemployment:
 
 ``` r
 unemp <- read.csv("http://datasets.flowingdata.com/unemployment09.csv",
@@ -107,3 +75,53 @@ p + geom_point(size=4, aes(colour = factor(carb))) +
 ```
 
 <img src="readme_raw_files/figure-markdown_github/discrete-1.png" width="672" />
+
+
+A made up example using the colours from the house of *Hufflepuff*:
+
+``` r
+library(ggplot2)
+ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
+  geom_hex() + coord_fixed() +
+  scale_fill_hp(house = "hufflepuff") + theme_bw()
+```
+
+<img src="readme_raw_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
+
+
+### Base R
+
+The `hp()` function produces the Harry Potter colour scales. You can choose which one the other colour scale options using the `movie` or `house` parameter.
+
+For base R plots, you can use the `hp()` function to generate the palette, and add it to the base plot. 
+
+``` r
+x <- y <- seq(-8*pi, 8*pi, len = 40)
+r <- sqrt(outer(x^2, y^2, "+"))
+filled.contour(cos(r^2)*exp(-r/(2*pi)), 
+               axes=FALSE,
+               color.palette=hp,
+               asp=1)
+```
+
+<img src="readme_files/figure-markdown_github/tldr_base-1.png" width="672" />
+
+
+The Colour Scales
+=================
+
+The package contains many colour scales, divided in two categories: **Movies** and **Houses**.
+
+### Movies
+
+One for each movie of the franchise.
+
+<img src="readme_raw_files/figure-markdown_github/show_scales-1.png" width="672" />
+
+### Houses
+
+One for each house of Hogwarts.
+
+<img src="readme_raw_files/figure-markdown_github/show_scales2-1.png" width="672" />
+
+
