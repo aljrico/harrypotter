@@ -45,7 +45,7 @@ x <- y <- seq(-8*pi, 8*pi, len = 40)
 r <- sqrt(outer(x^2, y^2, "+"))
 filled.contour(cos(r^2)*exp(-r/(2*pi)), 
                axes=FALSE,
-               col = hp(n = 40, movie = "slytherin"),
+               col = hp(n = 40, movie = "hufflepuff"),
                asp=1)
 ```
 
@@ -83,6 +83,8 @@ library(colorspace)
 library(dichromat)
 ```
 
+
+### Movies
 ```{r show_scales, echo=FALSE,fig.height=3.575}
 par(mfrow=c(8, 1), mar=rep(1, 4))
 img(rev(hp(n_col, movie = 1)), 1)
@@ -94,6 +96,16 @@ img(rev(hp(n_col, movie = 6)), 6)
 img(rev(hp(n_col, movie = 7)), 7)
 img(rev(hp(n_col, movie = 8)), 8)
 ```
+
+### Houses
+```{r show_scales, echo=FALSE,fig.height=3.575}
+par(mfrow=c(4, 1), mar=rep(1, 4))
+img(rev(hp(n_col, movie = "slytherin")), 1)
+img(rev(hp(n_col, movie = "gryffindor")), 2)
+img(rev(hp(n_col, movie = "ravenclaw")), 3)
+img(rev(hp(n_col, movie = "hufflepuff")), 4)
+```
+
 
 # Usage
 
@@ -132,7 +144,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie="slytherin")
+  scale_fill_hp(movie="gryffindor")
 ```
 
 The ggplot functions also can be used for discrete scales with the argument
@@ -141,7 +153,7 @@ The ggplot functions also can be used for discrete scales with the argument
 ```{r discrete}
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(carb))) +
-    scale_color_hp(discrete=TRUE, movie = "gryffindor") +
+    scale_color_hp(discrete=TRUE, movie = "hufflepuff") +
     theme_bw()
 ```
 

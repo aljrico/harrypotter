@@ -26,11 +26,11 @@ gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
 hufflepuff <- c("#ECB939", "#F0C75E", "#726255", "#372E29", "#000000")
 ravenclaw <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
 
-complete_palette <- function(house, n = 1000){
+complete_palette <- function(house, n = 100000){
 	complete_col <- c()
 	for(i in 1:(length(house)-1)){
 		cols <- colorRampPalette(c(house[i], house[i+1]))
-		complete_col <- c(complete_col, cols(1000))
+		complete_col <- c(complete_col, cols(n))
 	}
 	return(complete_col)
 }
