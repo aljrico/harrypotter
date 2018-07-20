@@ -41,10 +41,11 @@ knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
 
 ```{r tldr_base, message=FALSE}
 x <- y <- seq(-8*pi, 8*pi, len = 40)
+
 r <- sqrt(outer(x^2, y^2, "+"))
 filled.contour(cos(r^2)*exp(-r/(2*pi)), 
                axes=FALSE,
-               color.palette=hp,
+               col = hp(n = 40, movie = "slytherin"),
                asp=1)
 ```
 
@@ -131,7 +132,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie=7)
+  scale_fill_hp(movie="slytherin")
 ```
 
 The ggplot functions also can be used for discrete scales with the argument
@@ -140,7 +141,7 @@ The ggplot functions also can be used for discrete scales with the argument
 ```{r discrete}
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(carb))) +
-    scale_color_hp(discrete=TRUE, movie = 1) +
+    scale_color_hp(discrete=TRUE, movie = "gryffindor") +
     theme_bw()
 ```
 

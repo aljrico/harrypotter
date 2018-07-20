@@ -26,7 +26,18 @@ gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
 hufflepuff <- c("#ECB939", "#F0C75E", "#726255", "#372E29", "#000000")
 ravenclaw <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
 
-df <- grDevices::col2rgb(slytherin) %>%
+complete_palette <- function(house, n = 1000){
+	complete_col <- c()
+	for(i in 1:(length(house)-1)){
+		cols <- colorRampPalette(c(house[i], house[i+1]))
+		complete_col <- c(complete_col, cols(1000))
+	}
+	return(complete_col)
+}
+
+
+
+df <- grDevices::col2rgb(complete_palette(slytherin)) %>%
 	t() %>%
 	as.data.frame() %>%
 	dplyr::rename(V1 = red) %>%
@@ -36,7 +47,7 @@ df <- grDevices::col2rgb(slytherin) %>%
 
 map <- rbind(map, df)
 
-df <- grDevices::col2rgb(gryffindor) %>%
+df <- grDevices::col2rgb(complete_palette(gryffindor)) %>%
 	t() %>%
 	as.data.frame() %>%
 	dplyr::rename(V1 = red) %>%
@@ -46,7 +57,7 @@ df <- grDevices::col2rgb(gryffindor) %>%
 
 map <- rbind(map, df)
 
-df <- grDevices::col2rgb(hufflepuff) %>%
+df <- grDevices::col2rgb(complete_palette(hufflepuff)) %>%
 	t() %>%
 	as.data.frame() %>%
 	dplyr::rename(V1 = red) %>%
@@ -56,7 +67,7 @@ df <- grDevices::col2rgb(hufflepuff) %>%
 
 map <- rbind(map, df)
 
-df <- grDevices::col2rgb(ravenclaw) %>%
+df <- grDevices::col2rgb(complete_palette(ravenclaw)) %>%
 	t() %>%
 	as.data.frame() %>%
 	dplyr::rename(V1 = red) %>%
