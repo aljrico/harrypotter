@@ -81,9 +81,9 @@ hp <- harrypotterLite::hp
 
 #'
 #'  @export
-hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie= 1) {
+hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
 	function(n) {
-		harrypotterLite::hp(n, alpha, begin, end, direction, movie)
+		harrypotterLite::hp(n, alpha, begin, end, direction, movie, house)
 	}
 }
 
@@ -94,11 +94,11 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie= 1) {
 #'
 #' @export
 scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-																discrete = FALSE, movie = 1) {
+																discrete = FALSE, movie = NA, house = "hufflepuff") {
 	if (discrete) {
-		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, movie), ...)
+		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
 	} else {
-		scale_color_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie), ...)
+		scale_color_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie, house), ...)
 	}
 }
 
@@ -190,10 +190,10 @@ scale_colour_hp <- scale_color_hp
 #'
 #' @export
 scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-															 discrete = FALSE, movie = 1) {
+															 discrete = FALSE, movie = NA, house = "hufflepuff") {
 	if (discrete) {
-		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, movie), ...)
+		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
 	} else {
-		scale_fill_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie), ...)
+		scale_fill_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie, house), ...)
 	}
 }

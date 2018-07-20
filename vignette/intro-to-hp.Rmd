@@ -24,7 +24,7 @@ img {
 
 Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
 
-Install **viridis** like any R package:
+Install **hp** like any R package:
 
 ```{r}
 library(devtools)
@@ -32,21 +32,9 @@ devtools::install_github("aljrico/harrypotter", force = TRUE)
 library(harrypotter)
 ```
 
-For base plots, use the `hp()` function to generate a palette:
-
 ```{r setup, include=FALSE}
 library(harrypotter)
 knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
-```
-
-```{r tldr_base, message=FALSE}
-x <- y <- seq(-8*pi, 8*pi, len = 40)
-
-r <- sqrt(outer(x^2, y^2, "+"))
-filled.contour(cos(r^2)*exp(-r/(2*pi)), 
-               axes=FALSE,
-               col = hp(n = 40, movie = "ravenclaw"),
-               asp=1)
 ```
 
 For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
@@ -55,7 +43,7 @@ For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
-  scale_fill_hp(movie = "slytherin") + theme_bw()
+  scale_fill_hp(movie = "hufflepuff") + theme_bw()
 ```
 
 # Introduction
@@ -98,7 +86,7 @@ img(rev(hp(n_col, movie = 8)), 8)
 ```
 
 ### Houses
-```{r show_scales, echo=FALSE,fig.height=3.575}
+```{r show_scales2, echo=FALSE,fig.height=4}
 par(mfrow=c(4, 1), mar=rep(1, 4))
 img(rev(hp(n_col, movie = "slytherin")), 1)
 img(rev(hp(n_col, movie = "gryffindor")), 2)

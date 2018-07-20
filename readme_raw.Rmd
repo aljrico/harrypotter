@@ -51,7 +51,7 @@ For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
-  scale_fill_hp(movie = 3) + theme_bw()
+  scale_fill_hp(movie = "hufflepuff") + theme_bw()
 ```
 
 # Introduction
@@ -79,6 +79,7 @@ library(colorspace)
 library(dichromat)
 ```
 
+### Movies
 ```{r show_scales, echo=FALSE,fig.height=3.575}
 par(mfrow=c(8, 1), mar=rep(1, 4))
 img(rev(hp(n_col, movie = 1)), 1)
@@ -89,6 +90,15 @@ img(rev(hp(n_col, movie = 5)), 5)
 img(rev(hp(n_col, movie = 6)), 6)
 img(rev(hp(n_col, movie = 7)), 7)
 img(rev(hp(n_col, movie = 8)), 8)
+```
+
+### Houses
+```{r show_scales2, echo=FALSE,fig.height=4}
+par(mfrow=c(4, 1), mar=rep(1, 4))
+img(rev(hp(n_col, movie = "slytherin")), 1)
+img(rev(hp(n_col, movie = "gryffindor")), 2)
+img(rev(hp(n_col, movie = "ravenclaw")), 3)
+img(rev(hp(n_col, movie = "hufflepuff")), 4)
 ```
 
 # Usage
@@ -128,7 +138,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie=7)
+  scale_fill_hp(movie="gryffindor")
 ```
 
 The ggplot functions also can be used for discrete scales with the argument
