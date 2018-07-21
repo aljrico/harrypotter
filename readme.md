@@ -90,7 +90,13 @@ filled.contour(cos(r^2)*exp(-r/(2*pi)),
 The Colour Scales
 =================
 
-The package contains many colour scales, divided in two categories: **Movies** and **Houses**.
+The package contains many colour scales, divided in two categories: **Houses** and **Movies**.
+
+### Houses
+
+One for each house of Hogwarts.
+
+<img src="readme_raw_files/figure-markdown_github/show_scales2-1.png" width="672" />
 
 ### Movies
 
@@ -98,10 +104,5 @@ One for each movie of the franchise.
 
 <img src="readme_raw_files/figure-markdown_github/show_scales-1.png" width="672" />
 
-### Houses
-
-One for each house of Hogwarts.
-
-<img src="readme_raw_files/figure-markdown_github/show_scales2-1.png" width="672" />
 
 
