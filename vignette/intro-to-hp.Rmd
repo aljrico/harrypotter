@@ -32,9 +32,20 @@ devtools::install_github("aljrico/harrypotter", force = TRUE)
 library(harrypotter)
 ```
 
+For base plots, use the `hp()` function to generate a palette:
+
 ```{r setup, include=FALSE}
 library(harrypotter)
 knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
+```
+
+```{r tldr_base, message=FALSE}
+x <- y <- seq(-8*pi, 8*pi, len = 40)
+r <- sqrt(outer(x^2, y^2, "+"))
+filled.contour(cos(r^2)*exp(-r/(2*pi)), 
+               axes=FALSE,
+               color.palette=hp,
+               asp=1)
 ```
 
 For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
@@ -71,7 +82,6 @@ library(colorspace)
 library(dichromat)
 ```
 
-
 ### Movies
 ```{r show_scales, echo=FALSE,fig.height=3.575}
 par(mfrow=c(8, 1), mar=rep(1, 4))
@@ -88,12 +98,11 @@ img(rev(hp(n_col, movie = 8)), 8)
 ### Houses
 ```{r show_scales2, echo=FALSE,fig.height=4}
 par(mfrow=c(4, 1), mar=rep(1, 4))
-img(rev(hp(n_col, movie = "slytherin")), 1)
-img(rev(hp(n_col, movie = "gryffindor")), 2)
-img(rev(hp(n_col, movie = "ravenclaw")), 3)
-img(rev(hp(n_col, movie = "hufflepuff")), 4)
+img(rev(hp(n_col, movie = "slytherin")), "Slytherin")
+img(rev(hp(n_col, movie = "gryffindor")), "Gryffindor")
+img(rev(hp(n_col, movie = "ravenclaw")), "Ravenclaw")
+img(rev(hp(n_col, movie = "hufflepuff")), "Hufflepuff")
 ```
-
 
 # Usage
 
@@ -133,6 +142,36 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
   scale_fill_hp(movie="gryffindor")
+
+ggplot(choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
+  geom_polygon(data = state_df, colour = "white", fill = NA) +
+  coord_fixed() +
+  theme_minimal() +
+  ggtitle("US unemployment rate by county") +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank()) +
+  scale_fill_hp(movie="slytherin")
+
+ggplot(choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
+  geom_polygon(data = state_df, colour = "white", fill = NA) +
+  coord_fixed() +
+  theme_minimal() +
+  ggtitle("US unemployment rate by county") +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank()) +
+  scale_fill_hp(movie="ravenclaw")
+
+ggplot(choropleth, aes(long, lat, group = group)) +
+  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
+  geom_polygon(data = state_df, colour = "white", fill = NA) +
+  coord_fixed() +
+  theme_minimal() +
+  ggtitle("US unemployment rate by county") +
+  theme(axis.line = element_blank(), axis.text = element_blank(),
+        axis.ticks = element_blank(), axis.title = element_blank()) +
+  scale_fill_hp(movie="hufflepuff")
 ```
 
 The ggplot functions also can be used for discrete scales with the argument
@@ -141,7 +180,7 @@ The ggplot functions also can be used for discrete scales with the argument
 ```{r discrete}
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(carb))) +
-    scale_color_hp(discrete=TRUE, movie = "hufflepuff") +
+    scale_color_hp(discrete=TRUE, movie = 1) +
     theme_bw()
 ```
 
