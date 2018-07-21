@@ -8,13 +8,13 @@
 \title{Harry Potter colour scales}
 \usage{
 scale_color_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, movie = 1)
+  discrete = FALSE, movie = NA, house = "hufflepuff")
 
 scale_colour_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, movie = 1)
+  discrete = FALSE, movie = NA, house = "hufflepuff")
 
 scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, movie = 1)
+  discrete = FALSE, movie = NA, house = "hufflepuff")
 }
 \arguments{
 \item{...}{parameters to \code{discrete_scale} or \code{scale_fill_gradientn}}
@@ -30,7 +30,12 @@ are as output by \link[hp]{hp_pal}. If -1, the order of colors is reversed.}
 
 \item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
 
-\item{movie}{A character string indicating the colormap from which movie to use.}
+\item{movie}{A number indicating the colormap movie to use. Eight
+movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
+the 8th movie as 7.2 and the 7th movie as 7.1.}
+
+\item{house}{A character string indicating the colourmap from a house to use.
+Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 }
 \description{
 Uses the Harry Potter color scale.

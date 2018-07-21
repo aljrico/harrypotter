@@ -27,9 +27,12 @@
 #' @param direction Sets the order of colors in the scale. If 1, the default, colors
 #' are ordered from darkest to lightest. If -1, the order of colors is reversed.
 #'
-#' @param movie A character string indicating the colormap movie to use. Eight
+#' @param movie A number indicating the colormap movie to use. Eight
 #' movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
 #' the 8th movie as 7.2 and the 7th movie as 7.1.
+#'
+#' @param house A character string indicating the colourmap from a house to use.
+#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
 #' @return \code{hp} returns a character vector, \code{cv}, of color hex
 #' codes. This can be used either to create a user-defined color palette for
@@ -62,13 +65,13 @@
 #'
 #' ggplot(dat, aes(x = x, y = y)) +
 #'   geom_hex() + coord_fixed() +
-#'   scale_fill_gradientn(colours = hp(256, movie = 1))
+#'   scale_fill_gradientn(colours = hp(256, house = "Hufflepuff"))
 #'
 #' # using code from RColorBrewer to demo the palette
 #' n = 200
 #' image(
 #'   1:n, 1, as.matrix(1:n),
-#'   col = hp(n, movie = 1),
+#'   col = hp(n, house = "Slytherin"),
 #'   xlab = "hp n", ylab = "", xaxt = "n", yaxt = "n", bty = "n"
 #' )
 #'
@@ -131,7 +134,12 @@ scale_colour_hp <- scale_color_hp
 #'
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #'
-#' @param movie A character string indicating the colormap from which movie to use.
+#' @param movie A number indicating the colormap movie to use. Eight
+#' movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
+#' the 8th movie as 7.2 and the 7th movie as 7.1.
+#'
+#' @param house A character string indicating the colourmap from a house to use.
+#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
 #' @rdname scale_hp
 #'
@@ -145,24 +153,28 @@ scale_colour_hp <- scale_color_hp
 #' library(ggplot2)
 #'
 #' # ripped from the pages of ggplot2
-#' p <- ggplot(mtcars, aes(wt, mpg))
-#' p + geom_point(size=4, aes(colour = factor(cyl))) +
-#'     scale_color_hp(discrete=TRUE) +
+#' ggplot(mtcars, aes(wt, mpg)) +
+#'   geom_point(size=4, aes(colour = factor(cyl))) +
+#'     scale_color_hp(discrete=TRUE, house = "Gryffindor") +
 #'     theme_bw()
 #'
 #' # ripped from the pages of ggplot2
 #' dsub <- subset(diamonds, x > 5 & x < 6 & y > 5 & y < 6)
 #' dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
-#' d <- ggplot(dsub, aes(x, y, colour=diff)) + geom_point()
-#' d + scale_color_hp() + theme_bw()
+#' ggplot(dsub, aes(x, y, colour=diff)) +
+#'   geom_point() +
+#'   scale_color_hp(movie = 5) +
+#'   theme_bw()
 #'
 #'
 #' # from the main hp example
 #' dat <- data.frame(x = rnorm(10000), y = rnorm(10000))
 #'
 #' ggplot(dat, aes(x = x, y = y)) +
-#'   geom_hex() + coord_fixed() +
-#'   scale_fill_hp() + theme_bw()
+#'   geom_hex() +
+#'   coord_fixed() +
+#'   scale_fill_hp(movie = "Ravenclaw") +
+#'   theme_bw()
 #'
 #' library(ggplot2)
 #' library(MASS)
@@ -170,11 +182,11 @@ scale_colour_hp <- scale_color_hp
 #'
 #' data("geyser", package="MASS")
 #'
-#' ggplot(geyser, aes(x = duration, y = waiting)) +
+#' gg <- ggplot(geyser, aes(x = duration, y = waiting)) +
 #'   xlim(0.5, 6) + ylim(40, 110) +
 #'   stat_density2d(aes(fill = ..level..), geom="polygon") +
 #'   theme_bw() +
-#'   theme(panel.grid=element_blank()) -> gg
+#'   theme(panel.grid=element_blank())
 #'
 #' grid.arrange(
 #'   gg + scale_fill_hp(movie=1) + labs(x="Harry Potter and the Philosopher's Stone", y=NULL),
@@ -185,6 +197,14 @@ scale_colour_hp <- scale_color_hp
 #'   gg + scale_fill_hp(movie=6) + labs(x="Harry Potter and the Half Blood Prince", y=NULL),
 #'   gg + scale_fill_hp(movie=7) + labs(x="Harry Potter and the Deathly Hallows, Part 1", y=NULL),
 #'   gg + scale_fill_hp(movie=8) + labs(x="Harry Potter and the Deathly Hallows  Part 2", y=NULL),
+#'   ncol=4, nrow=4
+#' )
+#'
+#' #' grid.arrange(
+#'   gg + scale_fill_hp(house = "Hufflepuff") + labs(x = "Hufflepuff", y=NULL),
+#'   gg + scale_fill_hp(house = "Ravenclaw")  + labs(x = "Ravenclaw", y=NULL),
+#'   gg + scale_fill_hp(house = "Slytherin") +  labs(x = "Slytherin", y=NULL),
+#'   gg + scale_fill_hp(house = "Gryffindor") + labs(x = "Gryffindor", y=NULL),
 #'   ncol=4, nrow=4
 #' )
 #'
