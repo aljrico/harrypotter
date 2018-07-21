@@ -200,7 +200,7 @@ scale_colour_hp <- scale_color_hp
 #'   ncol=4, nrow=4
 #' )
 #'
-#' #' grid.arrange(
+#' grid.arrange(
 #'   gg + scale_fill_hp(house = "Hufflepuff") + labs(x = "Hufflepuff", y=NULL),
 #'   gg + scale_fill_hp(house = "Ravenclaw")  + labs(x = "Ravenclaw", y=NULL),
 #'   gg + scale_fill_hp(house = "Slytherin") +  labs(x = "Slytherin", y=NULL),
