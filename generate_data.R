@@ -16,9 +16,10 @@ for(i in 1:8){
 		# dplyr::arrange(V1 + V2 + V3) %>%
 		data.table()
 
-	V1 <- split(df$V1, f = ceiling(seq_along(df$V1)/(length(df$V1)/1000)))
-	V2 <- split(df$V1, f = ceiling(seq_along(df$V2)/(length(df$V2)/1000)))
-	V3 <- split(df$V3, f = ceiling(seq_along(df$V3)/(length(df$V3)/1000)))
+	reduced_size <- 5000
+	V1 <- split(df$V1, f = ceiling(seq_along(df$V1)/(length(df$V1)/reduced_size)))
+	V2 <- split(df$V1, f = ceiling(seq_along(df$V2)/(length(df$V2)/reduced_size)))
+	V3 <- split(df$V3, f = ceiling(seq_along(df$V3)/(length(df$V3)/reduced_size)))
 
 	r <- c()
 	g <- c()
@@ -43,7 +44,7 @@ gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
 hufflepuff <- c("#000000", "#372E29", "#726255", "#F0C75E", "#ECB939")
 ravenclaw <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
 
-complete_palette <- function(house, n = 2500){
+complete_palette <- function(house, n = 5000){
 	complete_col <- c()
 	for(i in 1:(length(house)-1)){
 		cols <- colorRampPalette(c(house[i], house[i+1]))
