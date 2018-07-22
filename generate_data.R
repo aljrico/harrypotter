@@ -9,12 +9,29 @@ for(i in 1:8){
 	filename <- paste0("data-raw/hp_", i, ".txt")
 	df <- fread(filename) %>%
 		dplyr::mutate(V1 = gsub(".*:","",V1) %>% as.numeric()) %>%
-		dplyr::filter(!(V1 == 0 & V2 == 0 & V3 == 0)) %>%
+		dplyr::filter(!(V1 == 0 | V2 == 0 | V3 == 0)) %>%
 		dplyr::mutate(movie = i) %>%
 		# dplyr::group_by(V1, V2, V3, movie) %>%
 		# dplyr::filter(row_number(V1) == 1) %>%
 		# dplyr::arrange(V1 + V2 + V3) %>%
 		data.table()
+
+	V1 <- split(df$V1, f = ceiling(seq_along(df$V1)/(length(df$V1)/1000)))
+	V2 <- split(df$V1, f = ceiling(seq_along(df$V2)/(length(df$V2)/1000)))
+	V3 <- split(df$V3, f = ceiling(seq_along(df$V3)/(length(df$V3)/1000)))
+
+	r <- c()
+	g <- c()
+	b <- c()
+
+	for(j in 1:length(V1)){
+		r[j] <- floor(mean(V1[[j]]))
+		g[j] <- floor(mean(V2[[j]]))
+		b[j] <- floor(mean(V3[[j]]))
+	}
+
+	df <- data.frame(V1 = r, V2 = g, V3 = b, movie = i)
+
 
 	map <- rbind(map, df)
 }
@@ -26,9 +43,7 @@ gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
 hufflepuff <- c("#000000", "#372E29", "#726255", "#F0C75E", "#ECB939")
 ravenclaw <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
 
-
-
-complete_palette <- function(house, n = 100000){
+complete_palette <- function(house, n = 2500){
 	complete_col <- c()
 	for(i in 1:(length(house)-1)){
 		cols <- colorRampPalette(c(house[i], house[i+1]))
