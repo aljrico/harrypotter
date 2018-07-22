@@ -85,6 +85,9 @@ hp <- harrypotterLite::hp
 #'
 #'  @export
 hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
+
+	house <- tolower(house)
+
 	function(n) {
 		harrypotterLite::hp(n, alpha, begin, end, direction, movie, house)
 	}
@@ -98,6 +101,9 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, hou
 #' @export
 scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 																discrete = FALSE, movie = NA, house = "hufflepuff") {
+
+	house <- tolower(house)
+
 	if (discrete) {
 		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
 	} else {
@@ -211,6 +217,9 @@ scale_colour_hp <- scale_color_hp
 #' @export
 scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 															 discrete = FALSE, movie = NA, house = "hufflepuff") {
+
+	house <- tolower(house)
+
 	if (discrete) {
 		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
 	} else {
