@@ -16,7 +16,7 @@ for(i in 1:8){
 		# dplyr::arrange(V1 + V2 + V3) %>%
 		data.table()
 
-	reduced_size <- 5000
+	reduced_size <- 10000
 	V1 <- split(df$V1, f = ceiling(seq_along(df$V1)/(length(df$V1)/reduced_size)))
 	V2 <- split(df$V1, f = ceiling(seq_along(df$V2)/(length(df$V2)/reduced_size)))
 	V3 <- split(df$V3, f = ceiling(seq_along(df$V3)/(length(df$V3)/reduced_size)))
