@@ -3,7 +3,13 @@
 #' A dataset containing the averaged RGB values of each frame from every movie of the Harry Potter saga.
 #'
 #'
-#'@format asdf
+#'@format A data frame containing all the colours used in the palette:
+#'\itemize{
+#'#  \item V1: Red value
+#'   \item V2: Green value
+#'   \item V3: Blue value
+#'   \item movie: What refers to the 'movie' of the franchise or the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
+#'}
 "hp.map"
 
 
@@ -124,7 +130,6 @@ scale_colour_hp <- scale_color_hp
 #' Otherwise the function will return a \code{discrete_scale} with the plot-computed
 #' number of colors.
 #'
-#' See \link[harrypotter]{http://movie-colors.com/hp/} for more information on the colour scale.
 #'
 #' @param ... parameters to \code{discrete_scale} or \code{scale_fill_gradientn}
 #'
@@ -135,7 +140,7 @@ scale_colour_hp <- scale_color_hp
 #' @param end The (corrected) hue in [0,1] at which the hp colormap ends.
 #'
 #' @param direction Sets the order of colors in the scale. If 1, the default, colors
-#' are as output by \link[hp]{hp_pal}. If -1, the order of colors is reversed.
+#' are as output by \link[harrypotter]{hp_pal}. If -1, the order of colors is reversed.
 #'
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #'
@@ -168,7 +173,7 @@ scale_colour_hp <- scale_color_hp
 #' dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
 #' ggplot(dsub, aes(x, y, colour=diff)) +
 #'   geom_point() +
-#'   scale_color_hp(movie = 5) +
+#'   scale_color_hp(House = "Ravenclaw) +
 #'   theme_bw()
 #'
 #'
@@ -178,7 +183,7 @@ scale_colour_hp <- scale_color_hp
 #' ggplot(dat, aes(x = x, y = y)) +
 #'   geom_hex() +
 #'   coord_fixed() +
-#'   scale_fill_hp(movie = "Ravenclaw") +
+#'   scale_fill_hp(House = "Hufflepuff") +
 #'   theme_bw()
 #'
 #' library(ggplot2)
