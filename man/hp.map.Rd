@@ -24,7 +24,5 @@ A dataset containing the averaged RGB values of each frame from every movie of t
 }
 \details{
 Sources: \url{http://movie-colors.com/hp/}..
-
-Sources: \url{http://movie-colors.com/hp/}..
 }
 \keyword{datasets}

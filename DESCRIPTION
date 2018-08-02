@@ -1,6 +1,6 @@
 Package: harrypotter
 Type: Package
-Title: Palettes Generated from All "Harry Potter" Movies.
+Title: Palettes Generated from All "Harry Potter" Movies
 Version: 0.1.0
 Authors@R: person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre"))
 Maintainer: Alejandro Jimenez Rico <aljrico@gmail.com>
@@ -19,6 +19,7 @@ BugReports: https://github.com/aljrico/harrypotter/issues
 Imports: 
     harrypotterLite,
     ggplot2 (>= 1.0.1),
-    gridExtra
+    gridExtra,
+    MASS
 RoxygenNote: 6.0.1
 Remotes: aljrico/harrypotterLite

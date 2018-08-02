@@ -2,7 +2,6 @@
 #'
 #' A dataset containing the averaged RGB values of each frame from every movie of the Harry Potter saga.
 #'
-#'  Sources: \url{http://movie-colors.com/hp/}..
 #'
 #'@format asdf
 "hp.map"
