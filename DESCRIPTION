@@ -17,9 +17,7 @@ Suggests:
 URL: https://github.com/aljrico/harrypotter
 BugReports: https://github.com/aljrico/harrypotter/issues
 Imports: 
-    harrypotterLite,
     ggplot2 (>= 1.0.1),
     gridExtra,
     MASS
 RoxygenNote: 6.0.1
-Remotes: aljrico/harrypotterLite

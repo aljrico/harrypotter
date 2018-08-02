@@ -80,11 +80,91 @@
 #'   xlab = "hp n", ylab = "", xaxt = "n", yaxt = "n", bty = "n"
 #' )
 #'
+
+#' @rdname hp
 #'
-#' @importFrom harrypotterLite hp
+#' @return  \code{hpMap} returns a \code{n} lines data frame containing the
+#' red (\code{R}), green (\code{G}), blue (\code{B}) and alpha (\code{alpha})
+#' channels of \code{n} equally spaced colors along the 'Harry Potter' colour map.
+#' \code{n = 256} by default.
 #'
+hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
+
+	house <- tolower(house)
+
+	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
+		stop("begin and end must be in [0,1]")
+	}
+
+	if (abs(direction) != 1) {
+		stop("direction must be 1 or -1")
+	}
+
+	if (direction == -1) {
+		tmp <- begin
+		begin <- end
+		end <- tmp
+	}
+
+	if(is.na(movie) & !is.na(house)){
+		movie <- house
+	}
+
+	colnames(hp.map) <- c("R", "G", "B", "movie")
+
+	map <- hp.map[hp.map$movie == movie, ]
+	# map$order <- map$R + map$G + map$B
+	# map <- map[order(map[,"order"]),]
+	# map <- map[,c("R","G","B","movie")]
+
+	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
+	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
+	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
+	data.frame(R = cols[, 1], G = cols[, 2], B = cols[, 3], alpha = alpha)
+}
+
+#' @rdname hp
 #' @export
-hp <- harrypotterLite::hp
+#'
+hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
+
+	house <- tolower(house)
+
+	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
+		stop("begin and end must be in [0,1]")
+	}
+
+	if (abs(direction) != 1) {
+		stop("direction must be 1 or -1")
+	}
+
+	if (direction == -1) {
+		tmp <- begin
+		begin <- end
+		end <- tmp
+	}
+
+	if(is.na(movie) & !is.na(house)){
+		movie <- house
+	}
+
+	if(movie == 7.1) movie <- 7
+	if(movie == 7.2) movie <- 8
+
+	colnames(hp.map) <- c("R", "G", "B", "movie")
+
+	map <- hp.map[hp.map$movie == movie, ]
+	# map$order <- map$R + map$G + map$B
+	# map <- map[order(map[,"order"]),]
+	# map <- map[,c("R","G","B","movie")]
+
+	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
+	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
+	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
+	grDevices::rgb(cols[, 1], cols[, 2], cols[, 3], alpha = alpha)
+}
+
+
 
 #' @rdname hp
 #'
@@ -94,7 +174,7 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, hou
 	house <- tolower(house)
 
 	function(n) {
-		harrypotterLite::hp(n, alpha, begin, end, direction, movie, house)
+		hp(n, alpha, begin, end, direction, movie, house)
 	}
 }
 
@@ -112,7 +192,7 @@ scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 	if (discrete) {
 		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
 	} else {
-		scale_color_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie, house), ...)
+		scale_color_gradientn(colours = hp(256, alpha, begin, end, direction, movie, house), ...)
 	}
 }
 
@@ -227,6 +307,6 @@ scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 	if (discrete) {
 		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
 	} else {
-		scale_fill_gradientn(colours = harrypotter::hp(256, alpha, begin, end, direction, movie, house), ...)
+		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, movie, house), ...)
 	}
 }
