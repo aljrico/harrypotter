@@ -12,6 +12,15 @@
 #'}
 "hp.map"
 
+#'@format A data frame containing all the colours used in the palette:
+#'\itemize{
+#'#  \item V1: Red value
+#'   \item V2: Green value
+#'   \item V3: Blue value
+#'   \item movie: What refers to the 'movie' of the franchise or the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
+#'}
+"map"
+
 
 
 
@@ -81,14 +90,14 @@
 #' )
 #'
 #'
-
 #' @importFrom harrypotterLite hp
 #'
 #' @export
 hp <- harrypotterLite::hp
 
+#' @rdname hp
 #'
-#'  @export
+#' @export
 hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
 
 	house <- tolower(house)
@@ -140,7 +149,7 @@ scale_colour_hp <- scale_color_hp
 #' @param end The (corrected) hue in [0,1] at which the hp colormap ends.
 #'
 #' @param direction Sets the order of colors in the scale. If 1, the default, colors
-#' are as output by \link[harrypotter]{hp_pal}. If -1, the order of colors is reversed.
+#' are as output by \code{hp_pal}. If -1, the order of colors is reversed.
 #'
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #'

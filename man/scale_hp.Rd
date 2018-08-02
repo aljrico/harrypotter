@@ -26,7 +26,7 @@ scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
 \item{end}{The (corrected) hue in [0,1] at which the hp colormap ends.}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
-are as output by \link[harrypotter]{hp_pal}. If -1, the order of colors is reversed.}
+are as output by \code{hp_pal}. If -1, the order of colors is reversed.}
 
 \item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
 

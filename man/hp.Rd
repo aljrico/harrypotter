@@ -2,9 +2,13 @@
 % Please edit documentation in R/hp_palette.R
 \name{hp}
 \alias{hp}
+\alias{hp_pal}
 \title{Harry Potter Colour Map.}
 \usage{
 hp(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA,
+  house = "hufflepuff")
+
+hp_pal(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA,
   house = "hufflepuff")
 }
 \arguments{

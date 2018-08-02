@@ -16,22 +16,22 @@ for(i in 1:8){
 		# dplyr::arrange(V1 + V2 + V3) %>%
 		data.table()
 
-	reduced_size <- 25000
-	V1 <- split(df$V1, f = ceiling(seq_along(df$V1)/(length(df$V1)/reduced_size)))
-	V2 <- split(df$V1, f = ceiling(seq_along(df$V2)/(length(df$V2)/reduced_size)))
-	V3 <- split(df$V3, f = ceiling(seq_along(df$V3)/(length(df$V3)/reduced_size)))
-
-	r <- c()
-	g <- c()
-	b <- c()
-
-	for(j in 1:length(V1)){
-		r[j] <- (mean(V1[[j]]))
-		g[j] <- (mean(V2[[j]]))
-		b[j] <- (mean(V3[[j]]))
-	}
-
-	df <- data.frame(V1 = r, V2 = g, V3 = b, movie = i)
+	# reduced_size <- 25000
+	# V1 <- split(df$V1, f = ceiling(seq_along(df$V1)/(length(df$V1)/reduced_size)))
+	# V2 <- split(df$V1, f = ceiling(seq_along(df$V2)/(length(df$V2)/reduced_size)))
+	# V3 <- split(df$V3, f = ceiling(seq_along(df$V3)/(length(df$V3)/reduced_size)))
+	#
+	# r <- c()
+	# g <- c()
+	# b <- c()
+	#
+	# for(j in 1:length(V1)){
+	# 	r[j] <- (mean(V1[[j]]))
+	# 	g[j] <- (mean(V2[[j]]))
+	# 	b[j] <- (mean(V3[[j]]))
+	# }
+	#
+	# df <- data.frame(V1 = r, V2 = g, V3 = b, movie = i)
 
 
 	map <- rbind(map, df)
@@ -97,6 +97,6 @@ map <- rbind(map, df)
 
 
 hp.map <- map
-save(map, file = "data/hp.map")
+save(map, file = "data/hp.map.Rdata")
 devtools::use_data(hp.map, internal = TRUE, overwrite = TRUE)
 
