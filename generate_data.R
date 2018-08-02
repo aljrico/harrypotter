@@ -97,6 +97,6 @@ map <- rbind(map, df)
 
 
 hp.map <- map
-save(map, file = "data/hp.map.Rdata")
+save(hp.map, file = "data/hp.map.rda", ascii = FALSE, compress = 'xz')
 devtools::use_data(hp.map, internal = TRUE, overwrite = TRUE)
 

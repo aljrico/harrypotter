@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre"))
 Maintainer: Alejandro Jimenez Rico <aljrico@gmail.com>
 Description: This package offers the possibility of using the characteristic palette present in all Harry Potter movies. Colours obtained by averaging the mean colour from every scene of each movie.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: TRUE
 Depends:
