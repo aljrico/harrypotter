@@ -12,11 +12,13 @@ Depends:
     R (>= 2.10)
 Suggests:
     hexbin (>= 1.27.0),
-    ggplot2 (>= 1.0.1),
     testthat,
     covr
 URL: https://github.com/aljrico/harrypotter
 BugReports: https://github.com/aljrico/harrypotter/issues
-Imports: harrypotterLite
+Imports: 
+    harrypotterLite,
+    ggplot2 (>= 1.0.1),
+    gridExtra
 RoxygenNote: 6.0.1
 Remotes: aljrico/harrypotterLite
