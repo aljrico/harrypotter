@@ -6,7 +6,7 @@
 \title{Original 'Harry Potter' colour map}
 \format{A data frame containing all the colours used in the palette:
 \itemize{
-#  \item V1: Red value
+  \item V1: Red value
   \item V2: Green value
   \item V3: Blue value
   \item movie: What refers to the 'movie' of the franchise or the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.

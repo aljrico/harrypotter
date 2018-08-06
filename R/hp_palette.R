@@ -253,7 +253,7 @@ scale_colour_hp <- scale_color_hp
 #' dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
 #' ggplot(dsub, aes(x, y, colour=diff)) +
 #'   geom_point() +
-#'   scale_color_hp(House = "Ravenclaw) +
+#'   scale_colour_hp(house = "Ravenclaw") +
 #'   theme_bw()
 #'
 #'
@@ -263,7 +263,7 @@ scale_colour_hp <- scale_color_hp
 #' ggplot(dat, aes(x = x, y = y)) +
 #'   geom_hex() +
 #'   coord_fixed() +
-#'   scale_fill_hp(House = "Hufflepuff") +
+#'   scale_fill_hp(house = "Hufflepuff") +
 #'   theme_bw()
 #'
 #' library(ggplot2)
