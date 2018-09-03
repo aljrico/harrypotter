@@ -21,7 +21,7 @@ For the *movie* palette, the colours have been extracted taking the average of e
 Introduction
 ============
 
-The [**harrypotter**](https:://github.com/aljrico/harrypotter) package brings to R colour scales extracted by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
+The *harrypotter* package brings to R colour scales extracted by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series))
 
 
 Installation & Usage
