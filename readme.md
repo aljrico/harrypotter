@@ -50,6 +50,9 @@ library(harrypotter)
 
 ## Use it
 
+The default colour scale of the package is the one of the house *Hufflepuff*. If you prefer to choose another one, you'll need to specify which movie *or* which house you want the palette from, don't fill both or the palette will default to *Hufflepuff*.
+
+
 ### ggplot
 
 The package contains colour scale functions for **ggplot** plots: `scale_color_hp()` and `scale_fill_hp()`. You can use the other scales with the `movie` or `house` argument in the `ggplot` scales. 
@@ -67,7 +70,7 @@ ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
 
 
 
-Here the scale from all the houses is used for cloropleth maps of U.S. unemployment:
+Using the same function and changing the value of the *house* argument, you can see how these scales can be used for these cloropleth maps of U.S. unemployment:
 
 
 <img src="readme_raw_files/figure-markdown_github/ggplot2-1.png" width="672" />
@@ -79,7 +82,7 @@ Here the scale from all the houses is used for cloropleth maps of U.S. unemploym
 <img src="readme_raw_files/figure-markdown_github/ggplot2-4.png" width="672" />
 
 
-The ggplot functions also can be used for discrete scales with the argument `discrete=TRUE`.
+The ggplot functions also can be used for discrete scales with the argument `discrete=TRUE`. This argument, when `TRUE`, sets a finite number of sufficiently spaced colours within the selected palette to plot your data.
 
 ``` r
 p <- ggplot(mtcars, aes(wt, mpg))
