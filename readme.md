@@ -1,8 +1,21 @@
 # Harry Potter Colour Palette
 
 Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
-The colours have been extracted taking the average of every frame from every movie of the Harry Potter film series.
-You can install this package **harrypotter** from this repository. 
+
+There are two different palettes availables. 
+
+### House
+The palette *house* uses the characteristic colours from the different houses of Hogwarts. They have been chosen manually trying to be representative of the house and suitable for plotting data at the same time. They might not be in accordance to all the branding productes available, official or not. If you would have chosen differently, please let me know and I'll consider changing them.
+
+<img src="readme_raw_files/figure-markdown_github/show_scales2-1.png" width="672" />
+
+
+### Movie
+
+For the *movie* palette, the colours have been extracted taking the average of every frame from every movie of the Harry Potter film series.
+
+<img src="readme_raw_files/figure-markdown_github/show_scales-1.png" width="672" />
+
 
 
 Introduction
@@ -14,7 +27,7 @@ The [**harrypotter**](http:://github.com/aljrico/harrypotter) package brings to 
 Installation & Usage
 =====
 
-### Install
+## Install it
 
 Just copy and execute this bunch of code and you'll have the last version of the package installed:
 
@@ -22,11 +35,20 @@ Just copy and execute this bunch of code and you'll have the last version of the
 library(devtools)
 devtools::install_github("aljrico/harrypotter")
 ```
-Load the packages using
+
+Or you can copy and execute this other bunch of code to have the official and more stable version of the package, published in the CRAN:
+
+``` r
+install.packages("harrypotter")
+```
+
+Either way, now you can load the packages using
 
 ``` r
 library(harrypotter)
 ```
+
+## Use it
 
 ### ggplot
 
