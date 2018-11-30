@@ -1,10 +1,10 @@
 Package: harrypotter
 Type: Package
 Title: Palettes Generated from All "Harry Potter" Movies
-Version: 0.1.0
+Version: 2.0.0
 Authors@R: person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre"))
 Maintainer: Alejandro Jimenez Rico <aljrico@gmail.com>
-Description: Implementation of the characteristic palette present in all Harry Potter movies. Colours obtained by averaging the mean colour from every scene of each movie and from the main colours of each house of Hogwarts.
+Description: Implementation of the characteristic palette of the houses of Hogwarts School of magic, present in all Harry Potter movies.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: TRUE
