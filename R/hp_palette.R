@@ -1,6 +1,6 @@
 #' Original 'Harry Potter' colour map
 #'
-#' A dataset containing the averaged RGB values of each frame from every movie of the Harry Potter saga.
+#' A dataset containing the colour palettes of each house of Hogwarts school.
 #'
 #'
 #'@format A data frame containing all the colours used in the palette:
@@ -8,7 +8,7 @@
 #'   \item V1: Red value
 #'   \item V2: Green value
 #'   \item V3: Blue value
-#'   \item movie: What refers to the 'movie' of the franchise or the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
+#'   \item house: Refers to the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
 #'}
 "hp.map"
 
@@ -32,10 +32,6 @@
 #' @param direction Sets the order of colors in the scale. If 1, the default, colors
 #' are ordered from darkest to lightest. If -1, the order of colors is reversed.
 #'
-#' @param movie A number indicating the colormap movie to use. Eight
-#' movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
-#' the 8th movie as 7.2 and the 7th movie as 7.1.
-#'
 #' @param house A character string indicating the colourmap from a house to use.
 #' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
@@ -50,12 +46,12 @@
 #'
 #' \if{html}{Here are the color scales:
 #'
-#'   \out{<div style="text-align: center">}\figure{hp-scales.png}{movies: style="width:750px;max-width:90\%;"}\out{</div>}
+#'   \out{<div style="text-align: center">}\figure{hogwarts_scales.png}{houses: style="width:750px;max-width:90\%;"}\out{</div>}
 #'
 #'   }
 #' \if{latex}{Here are the color scales:
 #'
-#'   \out{\begin{center}}\figure{hp-scales.png}\out{\end{center}}
+#'   \out{\begin{center}}\figure{hogwarts_scales.png}\out{\end{center}}
 #'   }
 #'
 #'
@@ -88,7 +84,7 @@
 #' channels of \code{n} equally spaced colors along the 'Harry Potter' colour map.
 #' \code{n = 256} by default.
 #'
-hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
+hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflepuff") {
 
 	house <- tolower(house)
 
@@ -106,16 +102,9 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 		end <- tmp
 	}
 
-	if(is.na(movie) & !is.na(house)){
-		movie <- house
-	}
+	colnames(hp.map) <- c("R", "G", "B", "house")
 
-	colnames(hp.map) <- c("R", "G", "B", "movie")
-
-	map <- hp.map[hp.map$movie == movie, ]
-	# map$order <- map$R + map$G + map$B
-	# map <- map[order(map[,"order"]),]
-	# map <- map[,c("R","G","B","movie")]
+	map <- hp.map[hp.map$house == house, ]
 
 	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
@@ -126,7 +115,7 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, movie =
 #' @rdname hp
 #' @export
 #'
-hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
+hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflepuff") {
 
 	house <- tolower(house)
 
@@ -144,19 +133,9 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, hous
 		end <- tmp
 	}
 
-	if(is.na(movie) & !is.na(house)){
-		movie <- house
-	}
+	colnames(hp.map) <- c("R", "G", "B", "house")
 
-	if(movie == 7.1) movie <- 7
-	if(movie == 7.2) movie <- 8
-
-	colnames(hp.map) <- c("R", "G", "B", "movie")
-
-	map <- hp.map[hp.map$movie == movie, ]
-	# map$order <- map$R + map$G + map$B
-	# map <- map[order(map[,"order"]),]
-	# map <- map[,c("R","G","B","movie")]
+	map <- hp.map[hp.map$house == house, ]
 
 	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
@@ -169,12 +148,12 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, hous
 #' @rdname hp
 #'
 #' @export
-hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, house = "hufflepuff") {
+hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflepuff") {
 
 	house <- tolower(house)
 
 	function(n) {
-		hp(n, alpha, begin, end, direction, movie, house)
+		hp(n, alpha, begin, end, direction, house)
 	}
 }
 
@@ -185,14 +164,14 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA, hou
 #'
 #' @export
 scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-																discrete = FALSE, movie = NA, house = "hufflepuff") {
+																discrete = FALSE, house = "hufflepuff") {
 
 	house <- tolower(house)
 
 	if (discrete) {
-		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
+		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, house), ...)
 	} else {
-		scale_color_gradientn(colours = hp(256, alpha, begin, end, direction, movie, house), ...)
+		scale_color_gradientn(colours = hp(256, alpha, begin, end, direction, house), ...)
 	}
 }
 
@@ -223,10 +202,6 @@ scale_colour_hp <- scale_color_hp
 #' are as output by \code{hp_pal}. If -1, the order of colors is reversed.
 #'
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
-#'
-#' @param movie A number indicating the colormap movie to use. Eight
-#' movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
-#' the 8th movie as 7.2 and the 7th movie as 7.1.
 #'
 #' @param house A character string indicating the colourmap from a house to use.
 #' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
@@ -269,13 +244,13 @@ scale_colour_hp <- scale_color_hp
 #'
 #' @export
 scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-															 discrete = FALSE, movie = NA, house = "hufflepuff") {
+															 discrete = FALSE, house = "hufflepuff") {
 
 	house <- tolower(house)
 
 	if (discrete) {
-		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, movie, house), ...)
+		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, house), ...)
 	} else {
-		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, movie, house), ...)
+		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, house), ...)
 	}
 }

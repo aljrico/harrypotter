@@ -9,12 +9,12 @@
   \item V1: Red value
   \item V2: Green value
   \item V3: Blue value
-  \item movie: What refers to the 'movie' of the franchise or the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
+  \item house: Refers to the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
 }}
 \usage{
 hp.map
 }
 \description{
-A dataset containing the averaged RGB values of each frame from every movie of the Harry Potter saga.
+A dataset containing the colour palettes of each house of Hogwarts school.
 }
 \keyword{datasets}

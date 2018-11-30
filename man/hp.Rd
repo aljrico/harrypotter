@@ -7,12 +7,12 @@
 \title{Harry Potter Colour Map.}
 \usage{
 hpMap(n = 256, alpha = 1, begin = 0, end = 1, direction = 1,
-  movie = NA, house = "hufflepuff")
-
-hp(n, alpha = 1, begin = 0, end = 1, direction = 1, movie = NA,
   house = "hufflepuff")
 
-hp_pal(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA,
+hp(n, alpha = 1, begin = 0, end = 1, direction = 1,
+  house = "hufflepuff")
+
+hp_pal(alpha = 1, begin = 0, end = 1, direction = 1,
   house = "hufflepuff")
 }
 \arguments{
@@ -27,10 +27,6 @@ hp_pal(alpha = 1, begin = 0, end = 1, direction = 1, movie = NA,
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
-
-\item{movie}{A number indicating the colormap movie to use. Eight
-movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
-the 8th movie as 7.2 and the 7th movie as 7.1.}
 
 \item{house}{A character string indicating the colourmap from a house to use.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
@@ -53,12 +49,12 @@ This function creates a vector of \code{n} equally spaced colors along the
 \details{
 \if{html}{Here are the color scales:
 
-  \out{<div style="text-align: center">}\figure{hp-scales.png}{movies: style="width:750px;max-width:90\%;"}\out{</div>}
+  \out{<div style="text-align: center">}\figure{hogwarts_scales.png}{houses: style="width:750px;max-width:90\%;"}\out{</div>}
 
   }
 \if{latex}{Here are the color scales:
 
-  \out{\begin{center}}\figure{hp-scales.png}\out{\end{center}}
+  \out{\begin{center}}\figure{hogwarts_scales.png}\out{\end{center}}
   }
 
 

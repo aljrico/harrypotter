@@ -3,18 +3,17 @@
 \name{scale_color_hp}
 \alias{scale_color_hp}
 \alias{scale_colour_hp}
-\alias{scale_color_hp}
 \alias{scale_fill_hp}
 \title{Harry Potter colour scales}
 \usage{
 scale_color_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, movie = NA, house = "hufflepuff")
+  discrete = FALSE, house = "hufflepuff")
 
 scale_colour_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, movie = NA, house = "hufflepuff")
+  discrete = FALSE, house = "hufflepuff")
 
 scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, movie = NA, house = "hufflepuff")
+  discrete = FALSE, house = "hufflepuff")
 }
 \arguments{
 \item{...}{parameters to \code{discrete_scale} or \code{scale_fill_gradientn}}
@@ -29,10 +28,6 @@ scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
 are as output by \code{hp_pal}. If -1, the order of colors is reversed.}
 
 \item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
-
-\item{movie}{A number indicating the colormap movie to use. Eight
-movies are available: 1,2,3,4,5,6,7 and 8. It is also accepted to desigate
-the 8th movie as 7.2 and the 7th movie as 7.1.}
 
 \item{house}{A character string indicating the colourmap from a house to use.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
@@ -73,37 +68,6 @@ ggplot(dat, aes(x = x, y = y)) +
   scale_fill_hp(house = "Hufflepuff") +
   theme_bw()
 
-library(ggplot2)
-library(MASS)
-library(gridExtra)
-
-data("geyser", package="MASS")
-
-gg <- ggplot(geyser, aes(x = duration, y = waiting)) +
-  xlim(0.5, 6) + ylim(40, 110) +
-  stat_density2d(aes(fill = ..level..), geom="polygon") +
-  theme_bw() +
-  theme(panel.grid=element_blank())
-
-grid.arrange(
-  gg + scale_fill_hp(movie=1) + labs(x="Harry Potter and the Philosopher's Stone", y=NULL),
-  gg + scale_fill_hp(movie=2) + labs(x="Harry Potter and the Chamber of Secrets", y=NULL),
-  gg + scale_fill_hp(movie=3) + labs(x="Harry Potter and the Prisoner of Azkaban", y=NULL),
-  gg + scale_fill_hp(movie=4) + labs(x="Harry Potter and the Goblet of Fire", y=NULL),
-  gg + scale_fill_hp(movie=5) + labs(x="Harry Potter and the Order of Phoenix", y=NULL),
-  gg + scale_fill_hp(movie=6) + labs(x="Harry Potter and the Half Blood Prince", y=NULL),
-  gg + scale_fill_hp(movie=7) + labs(x="Harry Potter and the Deathly Hallows, Part 1", y=NULL),
-  gg + scale_fill_hp(movie=8) + labs(x="Harry Potter and the Deathly Hallows  Part 2", y=NULL),
-  ncol=4, nrow=4
-)
-
-grid.arrange(
-  gg + scale_fill_hp(house = "Hufflepuff") + labs(x = "Hufflepuff", y=NULL),
-  gg + scale_fill_hp(house = "Ravenclaw")  + labs(x = "Ravenclaw", y=NULL),
-  gg + scale_fill_hp(house = "Slytherin") +  labs(x = "Slytherin", y=NULL),
-  gg + scale_fill_hp(house = "Gryffindor") + labs(x = "Gryffindor", y=NULL),
-  ncol=4, nrow=4
-)
 
 }
 \author{

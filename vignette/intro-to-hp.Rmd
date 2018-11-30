@@ -54,7 +54,7 @@ For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
-  scale_fill_hp(movie = "hufflepuff") + theme_bw()
+  scale_fill_hp(house = "hufflepuff") + theme_bw()
 ```
 
 # Introduction
@@ -64,7 +64,7 @@ brings to R colour scales created by [Alejandro Jimenez Rico](https://github.com
 
 # The Colour Scales
 
-The package contains eight color scales: One for each movie of the franchise.
+The package contains for colour scales: One for each house of Hogwarts School.
 
 ```{r for_repeat, include=FALSE}
 n_col <- 128
@@ -82,19 +82,6 @@ library(colorspace)
 library(dichromat)
 ```
 
-### Movies
-```{r show_scales, echo=FALSE,fig.height=3.575}
-par(mfrow=c(8, 1), mar=rep(1, 4))
-img(rev(hp(n_col, movie = 1)), 1)
-img(rev(hp(n_col, movie = 2)), 2)
-img(rev(hp(n_col, movie = 3)), 3)
-img(rev(hp(n_col, movie = 4)), 4)
-img(rev(hp(n_col, movie = 5)), 5)
-img(rev(hp(n_col, movie = 6)), 6)
-img(rev(hp(n_col, movie = 7)), 7)
-img(rev(hp(n_col, movie = 8)), 8)
-```
-
 ### Houses
 ```{r show_scales2, echo=FALSE,fig.height=4}
 par(mfrow=c(4, 1), mar=rep(1, 4))
@@ -107,11 +94,11 @@ img(rev(hp(n_col, movie = "hufflepuff")), "Hufflepuff")
 # Usage
 
 The `hp()` function produces the Harry Potter color scale.  You can choose
-the other color scale options using the `movie` parameter.
+the other color scale options using the `house` parameter.
 
 The package also contains color scale functions for **ggplot**
-plots: `scale_color_hp()` and `scale_fill_hp()`.  As with `hp()`, you can use the other scales with the `movie` argument
-in the `ggplot` scales.  Here the scale from the 7th is used for a cloropleth
+plots: `scale_color_hp()` and `scale_fill_hp()`.  As with `hp()`, you can use the other scales with the `house` argument
+in the `ggplot` scales.  Here this is used for a cloropleth
 map of U.S. unemployment:
 
 ```{r, ggplot2}
@@ -141,7 +128,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie="gryffindor")
+  scale_fill_hp(house="gryffindor")
 
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
@@ -151,7 +138,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie="slytherin")
+  scale_fill_hp(house="slytherin")
 
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
@@ -161,7 +148,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie="ravenclaw")
+  scale_fill_hp(house="ravenclaw")
 
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
@@ -171,7 +158,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(movie="hufflepuff")
+  scale_fill_hp(house="hufflepuff")
 ```
 
 The ggplot functions also can be used for discrete scales with the argument
@@ -180,7 +167,7 @@ The ggplot functions also can be used for discrete scales with the argument
 ```{r discrete}
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(carb))) +
-    scale_color_hp(discrete=TRUE, movie = 1) +
+    scale_color_hp(discrete=TRUE, house = "ravenclaw") +
     theme_bw()
 ```
 

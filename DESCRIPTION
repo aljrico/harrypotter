@@ -20,4 +20,4 @@ Imports:
     ggplot2 (>= 1.0.1),
     gridExtra,
     MASS
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
