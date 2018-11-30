@@ -180,6 +180,22 @@ scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 #' @export
 scale_colour_hp <- scale_color_hp
 
+#' @rdname scale_hp
+#' @aliases scale_color_hp
+#' @export
+scale_colour_hp_d <- scale_colour_hp(discrete = TRUE)
+
+#' @rdname scale_hp
+#' @aliases scale_color_hp
+#' @export
+scale_color_hp_d <- scale_color_hp(discrete = TRUE)
+
+
+#' @rdname hp
+#' @aliases hp
+#' @export
+harrypotter <- hp
+
 #' Harry Potter colour scales
 #'
 #' Uses the Harry Potter color scale.
@@ -254,3 +270,8 @@ scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, house), ...)
 	}
 }
+
+#' @rdname scale_hp
+#' @aliases scale_fill_hp
+#' @export
+scale_fill_hp_d <- scale_fill_hp(discrete = TRUE)

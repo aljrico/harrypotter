@@ -4,6 +4,7 @@
 \alias{hpMap}
 \alias{hp}
 \alias{hp_pal}
+\alias{harrypotter}
 \title{Harry Potter Colour Map.}
 \usage{
 hpMap(n = 256, alpha = 1, begin = 0, end = 1, direction = 1,
@@ -13,6 +14,9 @@ hp(n, alpha = 1, begin = 0, end = 1, direction = 1,
   house = "hufflepuff")
 
 hp_pal(alpha = 1, begin = 0, end = 1, direction = 1,
+  house = "hufflepuff")
+
+harrypotter(n, alpha = 1, begin = 0, end = 1, direction = 1,
   house = "hufflepuff")
 }
 \arguments{
