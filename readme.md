@@ -6,11 +6,6 @@
 [![rstudio mirror per-month downloads](http://cranlogs.r-pkg.org/badges/harrypotter)](https://github.com/metacran/cranlogs.app)
 [![rstudio mirror total downloads](http://cranlogs.r-pkg.org/badges/grand-total/harrypotter?color=yellowgreen)](https://github.com/metacran/cranlogs.app)
 
-
-I want to present you my first **R** package, [already published](https://cran.r-project.org/package=harrypotter) in CRAN. 
-
-I have to say that has been a challenging but very exciting experience. I've learned a lot of stuff and now I can appreciate that the way packages are structured, and the existence of the CRAN is one of the highlights of `R`, and one of its strongest advantages over other languages.
-
 This package provides the first round of palettes derived from the *Harry Potter* film series.
 
 At its first version, it simply contains the palettes of the [Hogwarts](https://en.wikipedia.org/wiki/Hogwarts) Houses. They have been chosen manually, taking into account its consistency with all the existing branding of the franchise, but its suitability for data visualisation. 
