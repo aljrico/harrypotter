@@ -46,12 +46,12 @@
 #'
 #' \if{html}{Here are the color scales:
 #'
-#'   \out{<div style="text-align: center">}\figure{hogwarts_scales.png}{houses: style="width:750px;max-width:90\%;"}\out{</div>}
+#'   \out{<div style="text-align: center">}\figure{hogwarts-scales.png}{houses: style="width:750px;max-width:90\%;"}\out{</div>}
 #'
 #'   }
 #' \if{latex}{Here are the color scales:
 #'
-#'   \out{\begin{center}}\figure{hogwarts_scales.png}\out{\end{center}}
+#'   \out{\begin{center}}\figure{hogwarts-scales.png}\out{\end{center}}
 #'   }
 #'
 #'

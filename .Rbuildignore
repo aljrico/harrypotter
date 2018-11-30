@@ -1,2 +1,11 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^.*\.tif$
+data-raw/
+generate_data.R
+NAMESPACE
+NAMESPACE.MD
+NEWS.MD
+readme.md
+readme_files/
+readme*
