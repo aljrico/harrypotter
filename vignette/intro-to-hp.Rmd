@@ -1,5 +1,5 @@
 ---
-title: "The Harry Potter Colour Palettes"
+title: "The Game of Thrones Colour Palettes"
 author:
   - "Alejandro Jiménez Rico"
 date: "`r Sys.Date()`"
@@ -8,7 +8,7 @@ output:
     toc: true
     toc_depth: 1
 vignette: >
-  %\VignetteIndexEntry{The Harry Potter Colour Palettes}
+  %\VignetteIndexEntry{The Game of Thrones Colour Palettes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,20 +22,20 @@ img {
 
 # tl;dr
 
-Use the color scales in this package to make plots that make use of the palette extracted from the *Harry Potter* movie franchise.
+Use the color scales in this package to make plots that make use of the palette inspired by the TV show *Game of Thrones*.
 
-Install **hp** like any R package:
+Install **got** like any R package:
 
 ```{r}
 library(devtools)
-devtools::install_github("aljrico/harrypotter", force = TRUE)
-library(harrypotter)
+devtools::install_github("aljrico/gameofthrones", force = TRUE)
+library(gameofthrones)
 ```
 
-For base plots, use the `hp()` function to generate a palette:
+For base plots, use the `got()` function to generate a palette:
 
 ```{r setup, include=FALSE}
-library(harrypotter)
+library(gameofthrones)
 knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
 ```
 
@@ -44,27 +44,27 @@ x <- y <- seq(-8*pi, 8*pi, len = 40)
 r <- sqrt(outer(x^2, y^2, "+"))
 filled.contour(cos(r^2)*exp(-r/(2*pi)), 
                axes=FALSE,
-               color.palette=hp,
+               color.palette=got,
                asp=1)
 ```
 
-For ggplot, use `scale_colour_hp()` and `scale_fill_hp()`:
+For ggplot, use `scale_colour_got()` and `scale_fill_got()`:
 
 ```{r, tldr_ggplot, message=FALSE}
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
-  scale_fill_hp(house = "hufflepuff") + theme_bw()
+  scale_fill_got(house = "baratheon") + theme_bw()
 ```
 
 # Introduction
 
-The [**harrypotter**](http:://github.com/aljrico/harrypotter) package
-brings to R colour scales created by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Harry Potter** film series](https://en.wikipedia.org/wiki/Harry_Potter_(film_series)) 
+The [**gameofthrones**](http:://github.com/aljrico/gameofthrones) package
+brings to R colour scales created by [Alejandro Jimenez Rico](https://github.com/aljrico) from the [**Game of Thrones** TV show](https://en.wikipedia.org/wiki/Game_of_Thrones) s
 
 # The Colour Scales
 
-The package contains for colour scales: One for each house of Hogwarts School.
+The package contains many colour scales.
 
 ```{r for_repeat, include=FALSE}
 n_col <- 128
@@ -76,7 +76,7 @@ img <- function(obj, nam) {
 ```
 
 ```{r begin, message=FALSE, include=FALSE}
-library(harrypotter)
+library(gameofthrones)
 library(scales)
 library(colorspace)
 library(dichromat)
@@ -85,19 +85,19 @@ library(dichromat)
 ### Houses
 ```{r show_scales2, echo=FALSE,fig.height=4}
 par(mfrow=c(4, 1), mar=rep(1, 4))
-img(rev(hp(n_col, movie = "slytherin")), "Slytherin")
-img(rev(hp(n_col, movie = "gryffindor")), "Gryffindor")
-img(rev(hp(n_col, movie = "ravenclaw")), "Ravenclaw")
-img(rev(hp(n_col, movie = "hufflepuff")), "Hufflepuff")
+img(rev(got(n_col, house = "martell")), "martell")
+img(rev(got(n_col, house = "stark")), "stark")
+img(rev(got(n_col, house = "targaryen2")), "targaryen2")
+img(rev(got(n_col, house = "baratheon")), "baratheon")
 ```
 
 # Usage
 
-The `hp()` function produces the Harry Potter color scale.  You can choose
+The `got()` function produces the Game of Thrones color scale.  You can choose
 the other color scale options using the `house` parameter.
 
 The package also contains color scale functions for **ggplot**
-plots: `scale_color_hp()` and `scale_fill_hp()`.  As with `hp()`, you can use the other scales with the `house` argument
+plots: `scale_color_got()` and `scale_fill_got()`.  As with `got()`, you can use the other scales with the `house` argument
 in the `ggplot` scales.  Here this is used for a cloropleth
 map of U.S. unemployment:
 
@@ -128,7 +128,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(house="gryffindor")
+  scale_fill_got(house="stark")
 
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
@@ -138,7 +138,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(house="slytherin")
+  scale_fill_got(house="martell")
 
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
@@ -148,7 +148,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(house="ravenclaw")
+  scale_fill_got(house="targaryen2")
 
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
@@ -158,7 +158,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   ggtitle("US unemployment rate by county") +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_hp(house="hufflepuff")
+  scale_fill_got(house="baratheon")
 ```
 
 The ggplot functions also can be used for discrete scales with the argument
@@ -167,7 +167,7 @@ The ggplot functions also can be used for discrete scales with the argument
 ```{r discrete}
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(carb))) +
-    scale_color_hp(discrete=TRUE, house = "ravenclaw") +
+    scale_color_got(discrete=TRUE, house = "targaryen2") +
     theme_bw()
 ```
 
