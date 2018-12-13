@@ -32,3 +32,4 @@ theme_map <- function(...) {
 data <- read.csv("https://github.com/grssnbchr/thematic-maps-ggplot2/blob/master/input/avg_age_15.csv", stringsAsFactors = F)
 
 gde_15 <- readOGR("https://github.com/grssnbchr/thematic-maps-ggplot2/blob/master/input/geodata/gde-1-1-15.shp", layer = "gde-1-1-15")
+

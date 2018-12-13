@@ -62,19 +62,14 @@
 #' library(ggplot2)
 #' library(hexbin)
 #'
-#' dat <- data.frame(x = rnorm(10000), y = rnorm(10000))
-#'
+#' dat <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 #' ggplot(dat, aes(x = x, y = y)) +
-#'   geom_hex() + coord_fixed() +
-#'   scale_fill_gradientn(colours = hp(256, house = "Hufflepuff"))
+#'   geom_hex() +
+#'   coord_fixed() +
+#'   scale_fill_gradientn(colours = hp(128, house = "Hufflepuff"))
 #'
-#' # using code from RColorBrewer to demo the palette
-#' n = 200
-#' image(
-#'   1:n, 1, as.matrix(1:n),
-#'   col = hp(n, house = "Slytherin"),
-#'   xlab = "hp n", ylab = "", xaxt = "n", yaxt = "n", bty = "n"
-#' )
+#' pal <- hp(256, house = "Ravenclaw")
+#' image(volcano, col = pal)
 #'
 
 #' @rdname hp
@@ -233,29 +228,21 @@ harrypotter <- hp
 #' @examples
 #' library(ggplot2)
 #'
-#' # ripped from the pages of ggplot2
-#' ggplot(mtcars, aes(wt, mpg)) +
-#'   geom_point(size=4, aes(colour = factor(cyl))) +
-#'     scale_color_hp(discrete=TRUE, house = "Gryffindor") +
-#'     theme_bw()
-#'
-#' # ripped from the pages of ggplot2
-#' dsub <- subset(diamonds, x > 5 & x < 6 & y > 5 & y < 6)
-#' dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
-#' ggplot(dsub, aes(x, y, colour=diff)) +
-#'   geom_point() +
-#'   scale_colour_hp(house = "Ravenclaw") +
-#'   theme_bw()
 #'
 #'
-#' # from the main hp example
-#' dat <- data.frame(x = rnorm(10000), y = rnorm(10000))
+#' ggplot(mtcars, aes(factor(cyl), fill=factor(vs))) +
+#' geom_bar() +
+#' scale_fill_hp(discrete = TRUE, house = "Ravenclaw")
 #'
-#' ggplot(dat, aes(x = x, y = y)) +
-#'   geom_hex() +
-#'   coord_fixed() +
-#'   scale_fill_hp(house = "Hufflepuff") +
-#'   theme_bw()
+#' ggplot(mtcars, aes(factor(gear), fill=factor(carb))) +
+#' geom_bar() +
+#' scale_fill_hp(discrete = TRUE, house = "Slytherin")
+#'
+#' ggplot(mtcars, aes(x = mpg, y = disp, colour = hp)) +
+#' geom_point(size = 2) +
+#' scale_colour_hp(house = "Gryffindor")
+#'
+#'
 #'
 #'
 #' @export

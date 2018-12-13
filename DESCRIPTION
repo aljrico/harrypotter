@@ -17,6 +17,5 @@ URL: https://github.com/aljrico/harrypotter
 BugReports: https://github.com/aljrico/harrypotter/issues
 Imports: 
     ggplot2 (>= 1.0.1),
-    gridExtra,
-    MASS
+    gridExtra
 RoxygenNote: 6.1.1
