@@ -186,12 +186,34 @@ scale_colour_hp <- scale_color_hp
 #' @rdname scale_hp
 #' @aliases scale_color_hp
 #' @export
-scale_colour_hp_d <- scale_colour_hp(discrete = TRUE)
+scale_colour_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
+															 direction = 1, option = "Hufflepuff") {
+	ggplot2::discrete_scale(
+		aesthetics = "colour",
+		"hp_d",
+		hp_pal(alpha, begin, end, direction, option),
+		...
+	)
+}
 
 #' @rdname scale_hp
 #' @aliases scale_color_hp
 #' @export
-scale_color_hp_d <- scale_color_hp(discrete = TRUE)
+scale_color_hp_d <- scale_colour_hp_d
+
+
+#' @rdname scale_hp
+#' @aliases scale_fill_hp
+#' @export
+scale_fill_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
+														 direction = 1, option = "Hufflepuff") {
+	discrete_scale(
+		aesthetics = "fill",
+		"hp_d",
+		hp_pal(alpha, begin, end, direction, option),
+		...
+	)
+}
 
 
 #' @rdname hp

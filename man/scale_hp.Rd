@@ -6,8 +6,8 @@
 \alias{scale_colour_hp}
 \alias{scale_colour_hp_d}
 \alias{scale_color_hp_d}
-\alias{scale_fill_hp}
 \alias{scale_fill_hp_d}
+\alias{scale_fill_hp}
 \title{Harry Potter colour scales}
 \format{An object of class \code{ScaleDiscrete} (inherits from \code{Scale}, \code{ggproto}, \code{gg}) of length 16.}
 \usage{
@@ -17,9 +17,13 @@ scale_color_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
 scale_colour_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
   discrete = FALSE, option = "hufflepuff", house = NULL)
 
-scale_colour_hp_d
+scale_colour_hp_d(..., alpha = 1, begin = 0, end = 1,
+  direction = 1, option = "Hufflepuff")
 
-scale_color_hp_d
+scale_color_hp_d(..., alpha = 1, begin = 0, end = 1, direction = 1,
+  option = "Hufflepuff")
+
+scale_fill_hp_d
 
 scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
   discrete = FALSE, option = "hufflepuff", house = NULL)
