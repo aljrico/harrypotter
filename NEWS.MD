@@ -1,8 +1,8 @@
 # harrypotter 2.1.0
 
 * `house` argument is officially *deprecated*. New argument `option` should be used instead. Functionality is absolutely equal. This change adds consistency with other similar packages and opens the possibility to add more palette options, outside the Hogwarts Houses. 
-
 * Fixed major bug regarding `_d()` functions. Now they work properly.
+* New set of palettes relseased!
 
 # harrypotter 2.0.0
 
