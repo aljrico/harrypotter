@@ -1,3 +1,7 @@
+# harrypotter 2.0.1
+
+* `house` argument is officially *deprecated*. New argument `option` should be used instead. Functionality is absolutely equal. This change adds consistency with other similar packages and opens the possibility to add more palette options, outside the Hogwarts Houses. 
+
 # harrypotter 2.0.0
 
 * Colour palettes from the actual movies removed. Now the only options available are the ones from Hogwarts' houses. Nobody used them and were actually terrible.

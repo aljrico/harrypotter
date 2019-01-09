@@ -8,16 +8,16 @@
 \title{Harry Potter Colour Map.}
 \usage{
 hpMap(n = 256, alpha = 1, begin = 0, end = 1, direction = 1,
-  house = "hufflepuff")
+  option = "hufflepuff", house = NULL)
 
 hp(n, alpha = 1, begin = 0, end = 1, direction = 1,
-  house = "hufflepuff")
+  option = "hufflepuff", house = NULL)
 
 hp_pal(alpha = 1, begin = 0, end = 1, direction = 1,
-  house = "hufflepuff")
+  option = "hufflepuff", house = NULL)
 
 harrypotter(n, alpha = 1, begin = 0, end = 1, direction = 1,
-  house = "hufflepuff")
+  option = "hufflepuff", house = NULL)
 }
 \arguments{
 \item{n}{The number of colors (\eqn{\ge 1}) to be in the palette.}
@@ -32,7 +32,10 @@ harrypotter(n, alpha = 1, begin = 0, end = 1, direction = 1,
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
 
-\item{house}{A character string indicating the colourmap from a house to use.
+\item{option}{A character string indicating the colourmap from a option to use.
+Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
+
+\item{house}{A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 }
 \value{
@@ -69,19 +72,14 @@ devices: see \code{\link[grDevices]{rgb}}.
 library(ggplot2)
 library(hexbin)
 
-dat <- data.frame(x = rnorm(10000), y = rnorm(10000))
-
+dat <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 ggplot(dat, aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_gradientn(colours = hp(256, house = "Hufflepuff"))
+  geom_hex() +
+  coord_fixed() +
+  scale_fill_gradientn(colours = hp(128, option = "Hufflepuff"))
 
-# using code from RColorBrewer to demo the palette
-n = 200
-image(
-  1:n, 1, as.matrix(1:n),
-  col = hp(n, house = "Slytherin"),
-  xlab = "hp n", ylab = "", xaxt = "n", yaxt = "n", bty = "n"
-)
+pal <- hp(256, option = "Ravenclaw")
+image(volcano, col = pal)
 
 }
 \author{

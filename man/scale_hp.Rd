@@ -12,17 +12,17 @@
 \format{An object of class \code{ScaleDiscrete} (inherits from \code{Scale}, \code{ggproto}, \code{gg}) of length 16.}
 \usage{
 scale_color_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, house = "hufflepuff")
+  discrete = FALSE, option = "hufflepuff", house = NULL)
 
 scale_colour_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, house = "hufflepuff")
+  discrete = FALSE, option = "hufflepuff", house = NULL)
 
 scale_colour_hp_d
 
 scale_color_hp_d
 
 scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
-  discrete = FALSE, house = "hufflepuff")
+  discrete = FALSE, option = "hufflepuff", house = NULL)
 
 scale_fill_hp_d
 }
@@ -40,7 +40,10 @@ are as output by \code{hp_pal}. If -1, the order of colors is reversed.}
 
 \item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
 
-\item{house}{A character string indicating the colourmap from a house to use.
+\item{option}{A character string indicating the colourmap  to use.
+Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
+
+\item{house}{A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 }
 \description{
@@ -55,29 +58,21 @@ number of colors.
 \examples{
 library(ggplot2)
 
-# ripped from the pages of ggplot2
-ggplot(mtcars, aes(wt, mpg)) +
-  geom_point(size=4, aes(colour = factor(cyl))) +
-    scale_color_hp(discrete=TRUE, house = "Gryffindor") +
-    theme_bw()
-
-# ripped from the pages of ggplot2
-dsub <- subset(diamonds, x > 5 & x < 6 & y > 5 & y < 6)
-dsub$diff <- with(dsub, sqrt(abs(x-y))* sign(x-y))
-ggplot(dsub, aes(x, y, colour=diff)) +
-  geom_point() +
-  scale_colour_hp(house = "Ravenclaw") +
-  theme_bw()
 
 
-# from the main hp example
-dat <- data.frame(x = rnorm(10000), y = rnorm(10000))
+ggplot(mtcars, aes(factor(cyl), fill=factor(vs))) +
+geom_bar() +
+scale_fill_hp(discrete = TRUE, option = "Ravenclaw")
 
-ggplot(dat, aes(x = x, y = y)) +
-  geom_hex() +
-  coord_fixed() +
-  scale_fill_hp(house = "Hufflepuff") +
-  theme_bw()
+ggplot(mtcars, aes(factor(gear), fill=factor(carb))) +
+geom_bar() +
+scale_fill_hp(discrete = TRUE, option = "Slytherin")
+
+ggplot(mtcars, aes(x = mpg, y = disp, colour = hp)) +
+geom_point(size = 2) +
+scale_colour_hp(option = "Gryffindor")
+
+
 
 
 }

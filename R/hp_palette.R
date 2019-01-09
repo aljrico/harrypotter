@@ -1,6 +1,6 @@
 #' Original 'Harry Potter' colour map
 #'
-#' A dataset containing the colour palettes of each house of Hogwarts school.
+#' A dataset containing some colour palettes from the Harry Potter Universe
 #'
 #'
 #'@format A data frame containing all the colours used in the palette:
@@ -8,7 +8,7 @@
 #'   \item V1: Red value
 #'   \item V2: Green value
 #'   \item V3: Blue value
-#'   \item house: Refers to the house of Hogwarts. It is intended to be a general option for choosing the specific colour palette.
+#'   \item option: It is intended to be a general option for choosing the specific colour palette.
 #'}
 "hp.map"
 
@@ -32,7 +32,10 @@
 #' @param direction Sets the order of colors in the scale. If 1, the default, colors
 #' are ordered from darkest to lightest. If -1, the order of colors is reversed.
 #'
-#' @param house A character string indicating the colourmap from a house to use.
+#' @param option A character string indicating the colourmap from a option to use.
+#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
+#'
+#' @param house A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 #' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
 #' @return \code{hp} returns a character vector, \code{cv}, of color hex
@@ -66,9 +69,9 @@
 #' ggplot(dat, aes(x = x, y = y)) +
 #'   geom_hex() +
 #'   coord_fixed() +
-#'   scale_fill_gradientn(colours = hp(128, house = "Hufflepuff"))
+#'   scale_fill_gradientn(colours = hp(128, option = "Hufflepuff"))
 #'
-#' pal <- hp(256, house = "Ravenclaw")
+#' pal <- hp(256, option = "Ravenclaw")
 #' image(volcano, col = pal)
 #'
 
@@ -79,9 +82,10 @@
 #' channels of \code{n} equally spaced colors along the 'Harry Potter' colour map.
 #' \code{n = 256} by default.
 #'
-hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflepuff") {
+hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, option = "hufflepuff", house = NULL) {
+	if(!is.null(house)) option <- house
 
-	house <- tolower(house)
+	option <- tolower(option)
 
 	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
 		stop("begin and end must be in [0,1]")
@@ -97,9 +101,9 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, house =
 		end <- tmp
 	}
 
-	colnames(hp.map) <- c("R", "G", "B", "house")
+	colnames(hp.map) <- c("R", "G", "B", "option")
 
-	map <- hp.map[hp.map$house == house, ]
+	map <- hp.map[hp.map$option == option, ]
 
 	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
@@ -110,9 +114,11 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, house =
 #' @rdname hp
 #' @export
 #'
-hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflepuff") {
+hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "hufflepuff", house = NULL) {
 
-	house <- tolower(house)
+	if(!is.null(house)) option <- house
+
+	option <- tolower(option)
 
 	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
 		stop("begin and end must be in [0,1]")
@@ -128,9 +134,9 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflep
 		end <- tmp
 	}
 
-	colnames(hp.map) <- c("R", "G", "B", "house")
+	colnames(hp.map) <- c("R", "G", "B", "option")
 
-	map <- hp.map[hp.map$house == house, ]
+	map <- hp.map[hp.map$option == option, ]
 
 	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
 	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
@@ -143,12 +149,13 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflep
 #' @rdname hp
 #'
 #' @export
-hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, house = "hufflepuff") {
+hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = "hufflepuff", house = NULL) {
 
-	house <- tolower(house)
+	if(!is.null(house)) option <- house
+	option <- tolower(option)
 
 	function(n) {
-		hp(n, alpha, begin, end, direction, house)
+		hp(n, alpha, begin, end, direction, option)
 	}
 }
 
@@ -159,14 +166,15 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, house = "huffle
 #'
 #' @export
 scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-																discrete = FALSE, house = "hufflepuff") {
+																discrete = FALSE, option = "hufflepuff", house = NULL) {
 
-	house <- tolower(house)
+	if(!is.null(house)) option <- house
+	option <- tolower(option)
 
 	if (discrete) {
-		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, house), ...)
+		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, option), ...)
 	} else {
-		scale_color_gradientn(colours = hp(256, alpha, begin, end, direction, house), ...)
+		scale_color_gradientn(colours = hp(256, alpha, begin, end, direction, option), ...)
 	}
 }
 
@@ -214,7 +222,10 @@ harrypotter <- hp
 #'
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #'
-#' @param house A character string indicating the colourmap from a house to use.
+#' @param option A character string indicating the colourmap  to use.
+#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
+#'
+#' @param house A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 #' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
 #' @rdname scale_hp
@@ -232,29 +243,30 @@ harrypotter <- hp
 #'
 #' ggplot(mtcars, aes(factor(cyl), fill=factor(vs))) +
 #' geom_bar() +
-#' scale_fill_hp(discrete = TRUE, house = "Ravenclaw")
+#' scale_fill_hp(discrete = TRUE, option = "Ravenclaw")
 #'
 #' ggplot(mtcars, aes(factor(gear), fill=factor(carb))) +
 #' geom_bar() +
-#' scale_fill_hp(discrete = TRUE, house = "Slytherin")
+#' scale_fill_hp(discrete = TRUE, option = "Slytherin")
 #'
 #' ggplot(mtcars, aes(x = mpg, y = disp, colour = hp)) +
 #' geom_point(size = 2) +
-#' scale_colour_hp(house = "Gryffindor")
+#' scale_colour_hp(option = "Gryffindor")
 #'
 #'
 #'
 #'
 #' @export
 scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-															 discrete = FALSE, house = "hufflepuff") {
+															 discrete = FALSE, option = "hufflepuff", house = NULL) {
 
-	house <- tolower(house)
+	if(!is.null(house)) option <- house
+	option <- tolower(option)
 
 	if (discrete) {
-		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, house), ...)
+		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, option), ...)
 	} else {
-		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, house), ...)
+		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, option), ...)
 	}
 }
 
