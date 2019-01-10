@@ -188,3 +188,11 @@ option = "Sprout"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/sprout.png" width= "75%"; height = "75%"></center>
+
+---
+
+```r
+option = "LunaLovegood"
+```
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/luna_lovegood.png" width= "75%"; height = "75%"></center>
