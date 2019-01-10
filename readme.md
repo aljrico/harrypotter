@@ -179,4 +179,4 @@ option = "Mischief"
 option = "Always"
 ```
 
-<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/always.png" style="width: 50%; height: 50%"></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/always.png" width= "50%; height = "50%"></center>
