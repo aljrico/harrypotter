@@ -181,6 +181,8 @@ option = "Always"
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/always.png" width= "75%"; height = "75%"></center>
 
+---
+
 ```r
 option = "Sprout"
 ```
