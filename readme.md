@@ -165,3 +165,10 @@ filled.contour(cos(r^2)*exp(-r/(2*pi)),
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-11-1.png" ></center>
+
+# Palettes
+
+```r
+option = "Mischief"
+```
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/mischief.jpg" ></center>

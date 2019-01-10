@@ -14,6 +14,7 @@ ron_weasley <- c("#323232", "#3B3754", "#696F7A", "#F75C00", "#F7A531", "#5E002D
 harry_potter <- c("#23231E", "#752520", "#96521B", "#AA8E4B", "#6E693F", "#92A48F")
 hermione_granger <- c("#9A005A", "#D10068", "#CE7877", "#BB7D8C", "#EEC6C4", "#EBDFAF")
 always <- c("#DBFECF", "#BAFFCF", "#77B2A4", "#4A8085", "#2D5157", "#5B696F", "#322934", "#0F0D1A")
+mischief <- c("#E7E3AF", "#CCAB6F", "#7D5535", "#662F19", "#761919")
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
