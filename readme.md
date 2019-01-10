@@ -212,3 +212,11 @@ option = "HarryPotter"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/harry_potter.png" width= "75%"; height = "75%"></center>
+
+---
+
+```r
+option = "DracoMalfoy"
+```
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/draco_malfoy.png" width= "75%"; height = "75%"></center>
