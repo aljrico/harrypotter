@@ -26,7 +26,9 @@ options <- list(slytherin = slytherin,
 								ronweasley = ron_weasley,
 								harrypotter = harry_potter,
 								hermionegranger = hermione_granger,
-								always = always)
+								always = always,
+								mischief = mischief,
+								sprout = sprout)
 
 
 

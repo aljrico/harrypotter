@@ -196,3 +196,11 @@ option = "LunaLovegood"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/luna_lovegood.png" width= "75%"; height = "75%"></center>
+
+---
+
+```r
+option = "HermioneGranger"
+```
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/hermione_granger.png" width= "75%"; height = "75%"></center>
