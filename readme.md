@@ -171,7 +171,7 @@ filled.contour(cos(r^2)*exp(-r/(2*pi)),
 ```r
 option = "Mischief"
 ```
-<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/mischief.png" style="width: 50%; height: 50%"></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/mischief.png" style="width: 75%; height: 75%"></center>
 
 ---
 
