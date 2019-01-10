@@ -204,3 +204,11 @@ option = "HermioneGranger"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/hermione_granger.png" width= "75%"; height = "75%"></center>
+
+---
+
+```r
+option = "HarryPotter"
+```
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/harry_potter.png" width= "75%"; height = "75%"></center>
