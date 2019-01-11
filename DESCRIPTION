@@ -2,7 +2,9 @@ Package: harrypotter
 Type: Package
 Title: Palettes Generated from All "Harry Potter" Movies
 Version: 2.0.0
-Authors@R: person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre"))
+Authors@R: c(
+    person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre")),
+    person("Alfredo", "Hernandez", email = "aldomann.designs@gmail.com", role = "ctb"))
 Maintainer: Alejandro Jimenez Rico <aljrico@gmail.com>
 Description: Implementation of the characteristic palette of the houses of Hogwarts School of magic, present in all Harry Potter movies.
 License: MIT + file LICENSE
