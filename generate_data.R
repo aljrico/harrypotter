@@ -35,10 +35,10 @@ options <- list(slytherin = slytherin,
 
 
 # Expand palette to accept contiuous scales or longer discrete scales
-complete_palette <- function(house, n = 3e3){
+complete_palette <- function(option, n = 3e3){
 	complete_col <- c()
-	for(i in 1:(length(house)-1)){
-		cols <- colorRampPalette(c(house[i], house[i+1]))
+	for(i in 1:(length(option)-1)){
+		cols <- colorRampPalette(c(option[i], option[i+1]))
 		complete_col <- c(complete_col, cols(n))
 	}
 	return(complete_col)
@@ -54,7 +54,7 @@ make_map <- function(option){
 		dplyr::rename(V1 = red) %>%
 		dplyr::rename(V2 = green) %>%
 		dplyr::rename(V3 = blue) %>%
-		dplyr::mutate(house = option)
+		dplyr::mutate(option = option)
 }
 
 for(h in names(options)){
