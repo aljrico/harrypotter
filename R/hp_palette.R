@@ -301,8 +301,3 @@ scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, option), ...)
 	}
 }
-
-#' @rdname scale_hp
-#' @aliases scale_fill_hp
-#' @export
-scale_fill_hp_d <- scale_fill_hp(discrete = TRUE)
