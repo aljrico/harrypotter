@@ -86,6 +86,8 @@ hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, option 
 	if(!is.null(house)) option <- house
 
 	option <- tolower(option)
+	option <- gsub(" ", "", option, fixed = TRUE)
+	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
 		stop("begin and end must be in [0,1]")
@@ -119,6 +121,8 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "huffle
 	if(!is.null(house)) option <- house
 
 	option <- tolower(option)
+	option <- gsub(" ", "", option, fixed = TRUE)
+	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
 		stop("begin and end must be in [0,1]")
@@ -153,6 +157,8 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = "huffl
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
+	option <- gsub(" ", "", option, fixed = TRUE)
+	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	function(n) {
 		hp(n, alpha, begin, end, direction, option)
@@ -170,6 +176,8 @@ scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
+	option <- gsub(" ", "", option, fixed = TRUE)
+	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	if (discrete) {
 		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, option), ...)
@@ -284,6 +292,8 @@ scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
+	option <- gsub(" ", "", option, fixed = TRUE)
+	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	if (discrete) {
 		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, option), ...)

@@ -228,3 +228,11 @@ option = "RonWeasley"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/ron_weasley.png" width= "75%"; height = "75%"></center>
+
+---
+
+```r
+option = "NewtScamander"
+```
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/newt_scamander.png" width= "75%"; height = "75%"></center>

@@ -16,6 +16,7 @@ hermione_granger <- c("#9A336F",  "#CE7877", "#BB7D8C", "#EEC6C4", "#EBDFAF")
 always <- c("#DBFECF", "#BAFFCF", "#77B2A4", "#4A8085", "#2D5157", "#5B696F", "#322934", "#0F0D1A")
 mischief <- c("#E7E3AF", "#CCAB6F", "#7D5535", "#662F19", "#761919")
 sprout <- c("#76653B", "#F2ED70", "#C0E05E", "#95C34E", "#7B9948")
+newt_scamander <- c("#FFC700", "#CCA829", "#B3A36B", "#BEC8CC", "#6B9FB3", "#147399")
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
@@ -28,7 +29,8 @@ options <- list(slytherin = slytherin,
 								hermionegranger = hermione_granger,
 								always = always,
 								mischief = mischief,
-								sprout = sprout)
+								sprout = sprout,
+								newtscamander = newt_scamander)
 
 
 
