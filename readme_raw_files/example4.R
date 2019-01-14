@@ -109,14 +109,17 @@ ggsave("examples/hufflepuff_histogram.png", gg, width = 300, height = 110, units
 
 # gryffindor_volcano ------------------------------------------------------
 
-pal1 <- hp(8, house = "Gryffindor")
+pal1 <- hp(8, house = "Gryffindor") # Left Image
 gg1 <- ggplotify::as.ggplot(~image(volcano, col = pal1))
 
 
-pal2 <- hp(128, house = "Gryffindor")
+pal2 <- hp(128, house = "Gryffindor") # Right Image
 gg2 <- ggplotify::as.ggplot(~image(volcano, col = pal2))
 
 gg <- grid.arrange(gg1,gg2, ncol = 2)
+
+ggsave("examples/gryffindor_volcano.png", gg, width = 300, height = 110, units = "mm", device = "png", dpi = "retina")
+
 
 
 

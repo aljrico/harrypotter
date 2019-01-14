@@ -236,3 +236,11 @@ option = "NewtScamander"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/newt_scamander.png" width= "75%"; height = "75%"></center>
+
+---
+
+```r
+option = "Ravenclaw"
+```
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/newt_scamander.png" width= "75%"; height = "75%"></center>
