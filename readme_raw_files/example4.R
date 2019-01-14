@@ -80,6 +80,43 @@ gg2 <- ggplot(faithfuld) +
 
 gg <- grid.arrange(gg1,gg2, ncol = 2)
 
-ggsave("examples/mischief_always_tile", gg, width = 300, height = 110, units = "mm", device = "png", dpi = "retina")
+ggsave("examples/mischief_always_tile.png", gg, width = 300, height = 110, units = "mm", device = "png", dpi = "retina")
+
+
+# hufflepuff_histogram ----------------------------------------------------
+
+gg <- ggplot(mpg, aes(displ)) +
+	geom_histogram(aes(fill = class),
+								 binwidth = .1,
+								 col = "black",
+								 size = 0.1) +
+	labs(title = "Discrete Scales",
+			 subtitle = "Engine Displacement across Vehicle Classes") +
+	geom_histogram(aes(fill = class),
+								 bins = 5,
+								 col = "black",
+								 size = 0.1) +   # change number of bins
+	labs(title="Histogram with Fixed Bins",
+			 subtitle="Engine Displacement across Vehicle Classes") +
+	scale_fill_hp(discrete=TRUE) +
+	ylab("") +
+	xlab("Display")
+
+ggsave("examples/hufflepuff_histogram.png", gg, width = 300, height = 110, units = "mm", device = "png", dpi = "retina")
+
+
+
+
+# gryffindor_volcano ------------------------------------------------------
+
+pal1 <- hp(8, house = "Gryffindor")
+gg1 <- ggplotify::as.ggplot(~image(volcano, col = pal1))
+
+
+pal2 <- hp(128, house = "Gryffindor")
+gg2 <- ggplotify::as.ggplot(~image(volcano, col = pal2))
+
+gg <- grid.arrange(gg1,gg2, ncol = 2)
+
 
 

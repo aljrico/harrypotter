@@ -74,45 +74,6 @@
 #' pal <- hp(256, option = "Ravenclaw")
 #' image(volcano, col = pal)
 #'
-
-#' @rdname hp
-#'
-#' @return  \code{hpMap} returns a \code{n} lines data frame containing the
-#' red (\code{R}), green (\code{G}), blue (\code{B}) and alpha (\code{alpha})
-#' channels of \code{n} equally spaced colors along the 'Harry Potter' colour map.
-#' \code{n = 256} by default.
-#'
-hpMap <- function(n = 256, alpha = 1, begin = 0, end = 1, direction = 1, option = "hufflepuff", house = NULL) {
-	if(!is.null(house)) option <- house
-
-	option <- tolower(option)
-	option <- gsub(" ", "", option, fixed = TRUE)
-	option <- gsub("\\_", "", option, fixed = FALSE)
-
-	if (begin < 0 | begin > 1 | end < 0 | end > 1) {
-		stop("begin and end must be in [0,1]")
-	}
-
-	if (abs(direction) != 1) {
-		stop("direction must be 1 or -1")
-	}
-
-	if (direction == -1) {
-		tmp <- begin
-		begin <- end
-		end <- tmp
-	}
-
-	colnames(hp.map) <- c("R", "G", "B", "option")
-
-	map <- hp.map[hp.map$option == option, ]
-
-	map_cols <- grDevices::rgb(map$R, map$G, map$B, maxColorValue = 255)
-	fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
-	cols <- fn_cols(seq(begin, end, length.out = n)) / 255
-	data.frame(R = cols[, 1], G = cols[, 2], B = cols[, 3], alpha = alpha)
-}
-
 #' @rdname hp
 #' @export
 #'
