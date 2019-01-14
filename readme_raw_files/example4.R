@@ -8,7 +8,7 @@ library(gridExtra)
 
 gg <- ggplot(diamonds, aes(factor(color), fill=factor(cut))) +
 	geom_bar(colour = "black") +
-	scale_fill_hp(discrete = TRUE, option = "ronweasley", direction = -1, name = "Cut") +
+	scale_fill_hp(discrete = TRUE, option = "ronweasley", name = "Cut") +
 	ylab("") +
 	xlab("Colour") +
 	coord_flip()
@@ -23,7 +23,7 @@ ggsave("examples/ronweasley_bar.png", gg, width = 300, height = 110, units = "mm
 dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 gg <- ggplot(dsamp, aes(carat, price)) +
 	geom_point(aes(colour = clarity)) +
-	scale_colour_hp(discrete = TRUE, option = "LunaLovegood", name = "Clarity") +
+	scale_colour_hp_d(option = "LunaLovegood", name = "Clarity") +
 	xlab("Carat") +
 	ylab("Price")
 

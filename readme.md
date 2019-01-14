@@ -41,48 +41,23 @@ Usage
 
 The default colour scale of the package is the one of the house *Hufflepuff*. If you prefer to choose another one, you'll need to specify which house you want the palette from.
 
-Let's say that you want a palette made from the house **Gryffindor**.
+You can get started using base R plot functions, and the `hp()` function. Its first argument `n` lets you set the number of colours to be mapped. This way you can set different resolutions. Let's say that you want a palette made from the house **Gryffindor**, then just type `option = "Gryffindor"`. 
 
 
 ```r
-pal <- hp(25, house = "Gryffindor")
+pal <- hp(n = 8, house = "Gryffindor")
+image(volcano, col = pal)
+
+pal <- hp(n = 128, house = "Gryffindor")
 image(volcano, col = pal)
 ```
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-3-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/examples/gryffindor_volcano.png" ></center>
 
-Or a bit more like me, you prefer to be a **Ravenclaw**.
-
-
-```r
-pal <- hp(25, house = "Ravenclaw")
-image(volcano, col = pal)
-```
-
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-4-1.png" ></center>
-
-Or put them all together
-
-
-```r
-pal_gryff <- hp(25, house = "Gryffindor")
-pal_rav   <- hp(25, house = "Ravenclaw")
-pal_huff  <- hp(25, house = "Hufflepuff")
-pal_sly   <- hp(25, house = "Slytherin")
-
-par(mfrow = c(2,2))
-image(volcano, col = pal_gryff)
-image(volcano, col = pal_rav)
-image(volcano, col = pal_huff)
-image(volcano, col = pal_sly)
-```
-
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-5-1.png" ></center>
-
-### ggplot2
+## ggplot2
 
 Of course, this package has specific functions to behave seamlessly with the best data visiualisation library available. 
-The package contains colour scale functions for **ggplot2** plots: `scale_color_hp()` and `scale_fill_hp()`.
+The package contains colour scale functions for **ggplot2** plots: `scale_colour_hp()` and `scale_fill_hp()`. 
 
 
 Here is a made up example using the colours from the house of **Hufflepuff**,
@@ -99,22 +74,8 @@ ggplot(data.frame(x = rnorm(1e4), y = rnorm(1e4)), aes(x = x, y = y)) +
 
 <center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-6-1.png" ></center>
 
-and **Ravenclaw**
 
-
-```r
-library(ggplot2)
-ggplot(data.frame(x = rnorm(1e4), y = rnorm(1e4)), aes(x = x, y = y)) +
-  geom_hex() + 
-	coord_fixed() +
-  scale_fill_hp(house = "ravenclaw") + 
-	theme_bw()
-```
-
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-7-1.png" ></center>
-
-
-or more made-up heatmaps
+or more made-up heatmaps:
 
 <center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-8-1.png" ></center>
 
@@ -126,45 +87,42 @@ Using the same function we can also plot these cloropleth maps of U.S. unemploym
 <center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/ggplot2-2.png" ></center>
 
 
+### Discrete Scales
 
 But what if you want discrete scales? These functions also can be used for discrete scales with the argument `discrete = TRUE`. This argument, when TRUE, sets a finite number of sufficiently spaced colours within the selected palette to plot your data.
 
 
 ```r
-library("ggplot2")
-ggplot(mtcars, aes(factor(cyl), fill=factor(vs))) +  
-	geom_bar() +
-  scale_fill_hp(discrete = TRUE, house = "Ravenclaw")
-```
-
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-9-1.png" ></center>
-
-
-```r
-ggplot(mpg, aes(class)) +
-	geom_bar(aes(fill = drv), position = position_stack(reverse = TRUE)) +
- coord_flip() +
-	scale_fill_hp(discrete = TRUE, house = "Gryffindor") +
- theme(legend.position = "top") +
+ggplot(diamonds, aes(factor(color), fill=factor(cut))) +
+	geom_bar(colour = "black") +
+	scale_fill_hp(discrete = TRUE, option = "ronweasley", name = "Cut") +
 	ylab("") +
-	xlab("Class")
+	xlab("Colour") +
+	coord_flip()
 ```
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-10-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/examples/ronweasley_bar.png" ></center>
 
-
+You can also use discrete scales by adding `_d()` at the end of it instead, like `scale_fill_hp_d()`.
 
 
 ```r
-x <- y <- seq(-8*pi, 8*pi, len = 40)
-r <- sqrt(outer(x^2, y^2, "+"))
-filled.contour(cos(r^2)*exp(-r/(2*pi)), 
-               axes=FALSE,
-               color.palette=hp,
-               asp=1)
+dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
+ggplot(dsamp, aes(carat, price)) +
+	geom_point(aes(colour = clarity)) +
+	scale_colour_hp_d(option = "LunaLovegood", name = "Clarity") +
+	xlab("Carat") +
+	ylab("Price")
 ```
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-11-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/examples/lunalovegood_scatter.png" ></center>
+
+
+Don't forget to try them all.
+
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/examples/mischief_always_tile.png" ></center>
+
+
 
 # Palettes
 
