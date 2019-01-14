@@ -14,7 +14,7 @@ At its first version, it simply contains the palettes of the [Hogwarts](https://
 
 The colour palette should be beautiful, useful for plotting data and shoulr relate to desired style; in this case, should relate to the Harry Potter world. Some of the colours might change in future versions, in order to find this balance between suitability for plotting and relatable to the Harry Potter universe.
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/show_scales2-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/examples/scales_houses" ></center>
 
 
 
