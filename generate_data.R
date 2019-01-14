@@ -12,7 +12,9 @@ luna_lovegood <- c("#084D49", "#276C69", "#189BA0", "#73C1C4", "#BF8699", "#A642
 draco_malfoy <- c("#000906", "#003C2E", "#45977A", "#4B7366", "#97946E", "#C9DFD2")
 ron_weasley <- c("#FF6400", "#FFAA33", "#6C737E", "#3D3A57", "#61002E")
 harry_potter <- c("#23231E", "#752520", "#96521B", "#AA8E4B", "#6E693F", "#92A48F")
-hermione_granger <- c("#9A336F",  "#CE7877", "#BB7D8C", "#EEC6C4", "#EBDFAF")
+#hermione_granger <- c("#9A336F",  "#CE7877", "#BB7D8C", "#EEC6C4", "#EBDFAF")
+hermione_granger <- c("#6C001D", "#930030", "#C90052", "#D70C71", "#F0799F", "#EBA692", "#E7C49D")
+
 
 mischief <- c("#E7E3AF", "#CCAB6F", "#7D5535", "#662F19", "#761919")
 sprout <- c("#76653B", "#F2ED70", "#C0E05E", "#95C34E", "#7B9948")
