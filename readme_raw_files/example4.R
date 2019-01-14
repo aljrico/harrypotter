@@ -1,6 +1,7 @@
 library(tidyverse)
 devtools::install_github("aljrico/harrypotter")
 library(harrypotter)
+library(gridExtra)
 
 
 # ronweasley_bar -----------------------------------------------------
@@ -61,13 +62,24 @@ ggsave("examples/newtscamander_posneg.png", gg, width = 300, height = 110, units
 # mischief_tile -----------------------------------------------------------
 
 
-gg <- ggplot(faithfuld) +
+gg1 <- ggplot(faithfuld) +
 	geom_tile(aes(waiting, eruptions, fill = density)) +
 	xlab("Waiting") +
 	ylab("Eruptions") +
 	scale_fill_hp(option = "Mischief", name = "Density") +
-	theme_minimal()
+	theme_minimal() +
+	ggtitle("Mischief")
 
-ggsave("examples/mischief_tile.png", gg, width = 300, height = 110, units = "mm", device = "png", dpi = "retina")
+gg2 <- ggplot(faithfuld) +
+	geom_tile(aes(waiting, eruptions, fill = density)) +
+	xlab("Waiting") +
+	ylab("Eruptions") +
+	scale_fill_hp(option = "Always", name = "Density") +
+	theme_minimal() +
+	ggtitle("Always")
+
+gg <- grid.arrange(gg1,gg2, ncol = 2)
+
+ggsave("examples/mischief_always_tile", gg, width = 300, height = 110, units = "mm", device = "png", dpi = "retina")
 
 

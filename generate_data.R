@@ -18,7 +18,7 @@ mischief <- c("#E7E3AF", "#CCAB6F", "#7D5535", "#662F19", "#761919")
 sprout <- c("#76653B", "#F2ED70", "#C0E05E", "#95C34E", "#7B9948")
 newt_scamander <- c("#FFC700", "#CCA829", "#B3A36B", "#BEC8CC", "#6B9FB3", "#147399")
 
-always <- c("#CFFFCC", "#A5FFCC", "#69B6A3", "#428185", "#2B5358", "#1E3C58", "#1E1E32", "#0A0A1E")
+always <- c("#CAF2C2", "#98D9A8", "#69B6A3", "#428185", "#1E3C58", "#202B40", "#1E1E32")
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
