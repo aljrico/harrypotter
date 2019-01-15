@@ -27,7 +27,7 @@ ravenclaw <- c("#006699", "#1B80B3", "#41A6D9", "#98C2D9", "#D9AC82", "#D97C21",
 harry_potter <- c("#99000D", "#B32C12", "#B36C24", "#B3B336", "#92B351", "#8EB374", "#99CC8F")
 draco_malfoy <- c("#00332A", "#004D33", "#0F6642", "#3F8C52", "#77B36B", "#D9D962", "#F2F26D")
 newt_scamander <- c("#FEDA26", "#CCB233", "#CCBE7A", "#D9D2AD", "#6CB6D9", "#3091BF", "#0072A6")
-ron_weasley <- c("#E59950", "#860000", "#860000", "#852E19", "#CE8B14", "#EA9400", "#FFA000")
+ron_weasley <- c("#6D0036", "#860000", "#860000", "#852E19", "#CE8B14", "#EA9400", "#FFA000")
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
