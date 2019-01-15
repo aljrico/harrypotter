@@ -16,7 +16,7 @@ luna_lovegood <- c("#084D49", "#276C69", "#189BA0", "#73C1C4", "#BF8699", "#A642
 #newt_scamander <- c("#FFC700", "#CCA829", "#B3A36B", "#BEC8CC", "#6B9FB3", "#147399")
 
 
-hermione_granger <- c("#6C001D", "#930030", "#C90052", "#D70C71", "#F0799F", "#EBA692", "#E7C49D")
+hermione_granger <- c("#660012", "#99172C", "#CC2945", "#CC4752", "#E65E51", "#E67551", "#E59950")
 
 
 mischief <- c("#E7E3AF", "#CCAB6F", "#7D5535", "#662F19", "#761919")
@@ -27,7 +27,7 @@ ravenclaw <- c("#006699", "#1B80B3", "#41A6D9", "#98C2D9", "#D9AC82", "#D97C21",
 harry_potter <- c("#99000D", "#B32C12", "#B36C24", "#B3B336", "#92B351", "#8EB374", "#99CC8F")
 draco_malfoy <- c("#00332A", "#004D33", "#0F6642", "#3F8C52", "#77B36B", "#D9D962", "#F2F26D")
 newt_scamander <- c("#FEDA26", "#CCB233", "#CCBE7A", "#D9D2AD", "#6CB6D9", "#3091BF", "#0072A6")
-ron_weasley <- c("#6D0036", "#3F294F", "#6C4F81", "#A075C0", "#E7B86C", "#E8A538", "#FFA000")
+ron_weasley <- c("#E59950", "#860000", "#860000", "#852E19", "#CE8B14", "#EA9400", "#FFA000")
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
