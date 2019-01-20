@@ -8,7 +8,7 @@ library(gridExtra)
 
 gg <- ggplot(diamonds, aes(factor(color), fill=factor(cut))) +
 	geom_bar(colour = "black") +
-	scale_fill_hp_d(option = "sprout", name = "Cut") +
+	scale_fill_hp_d(option = "ronweasley2", name = "Cut") +
 	ylab("") +
 	xlab("Colour") +
 	coord_flip()
