@@ -95,7 +95,7 @@ But what if you want discrete scales? These functions also can be used for discr
 ```r
 ggplot(diamonds, aes(factor(color), fill=factor(cut))) +
 	geom_bar(colour = "black") +
-	scale_fill_hp(discrete = TRUE, option = "ronweasley", name = "Cut") +
+	scale_fill_hp(discrete = TRUE, option = "ronweasley2", name = "Cut") +
 	ylab("") +
 	xlab("Colour") +
 	coord_flip()
