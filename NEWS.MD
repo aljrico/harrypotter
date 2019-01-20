@@ -4,6 +4,7 @@
 * Fixed major bug regarding `_d()` functions. Now they work properly.
 * Removed useless duplicated function called `hpMap`. 
 * **New set of palettes relseased!**
+* New function `hp_palettes()` that outputs all palettes' name. Very handy if you don't remember them.
 
 # harrypotter 2.0.0
 

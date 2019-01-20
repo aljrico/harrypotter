@@ -15,6 +15,6 @@
 hp.map
 }
 \description{
-A dataset containing some colour palettes from the Harry Potter Universe
+A dataset containing some colour palettes inspired on the Harry Potter Universe
 }
 \keyword{datasets}

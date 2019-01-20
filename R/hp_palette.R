@@ -1,6 +1,6 @@
 #' Original 'Harry Potter' colour map
 #'
-#' A dataset containing some colour palettes from the Harry Potter Universe
+#' A dataset containing some colour palettes inspired on the Harry Potter Universe
 #'
 #'
 #'@format A data frame containing all the colours used in the palette:
@@ -14,11 +14,33 @@
 
 
 
+#' Available Palettes.
+#'
+#' This function outpus a vector containing the names of all the available palettes in the 'harrypotter' package.
+#'
+#' @return \code{hp_palettes} returns a character vector with the names of the palettes available to use.
+#'
+#' @author Alejandro Jiménez Rico \email{aljrico@@gmail.com}
+#'
+#'
+#' @examples
+#' hp_palettes()
+#'
+#' @rdname hp_palettes
+#' @export
 
+hp_palettes <- function(){
+	return(unique(hp.map$option))
+}
+
+#'
+#'
+#'
+#'
 #' Harry Potter Colour Map.
 #'
 #' This function creates a vector of \code{n} equally spaced colors along the
-#' 'HP colour map' created by an average calculated for all the colours present in every frame of the pictures.
+#' 'HP colour map' of your selection
 #'
 #' @param n The number of colors (\eqn{\ge 1}) to be in the palette.
 #'
@@ -69,7 +91,7 @@
 #' ggplot(dat, aes(x = x, y = y)) +
 #'   geom_hex() +
 #'   coord_fixed() +
-#'   scale_fill_gradientn(colours = hp(128, option = "Hufflepuff"))
+#'   scale_fill_gradientn(colours = hp(128, option = "Always", direction = - 1))
 #'
 #' pal <- hp(256, option = "Ravenclaw")
 #' image(volcano, col = pal)
@@ -77,7 +99,7 @@
 #' @rdname hp
 #' @export
 #'
-hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "hufflepuff", house = NULL) {
+hp <- function(n, option = "hufflepuff", alpha = 1, begin = 0, end = 1, direction = 1, house = NULL) {
 
 	if(!is.null(house)) option <- house
 
@@ -114,7 +136,7 @@ hp <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "huffle
 #' @rdname hp
 #'
 #' @export
-hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = "hufflepuff", house = NULL) {
+hp_pal <- function(option = 'Always', alpha = 1, begin = 0, end = 1, direction = 1, house = NULL) {
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
@@ -122,7 +144,7 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = "huffl
 	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	function(n) {
-		hp(n, alpha, begin, end, direction, option)
+		hp(n, option, alpha, begin, end, direction)
 	}
 }
 
@@ -132,8 +154,8 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = "huffl
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #'
 #' @export
-scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-																discrete = FALSE, option = "hufflepuff", house = NULL) {
+scale_color_hp <- function(option = "hufflepuff", ..., alpha = 1, begin = 0, end = 1, direction = 1,
+																discrete = FALSE, house = NULL) {
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
@@ -141,9 +163,9 @@ scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	if (discrete) {
-		discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, option), ...)
+		discrete_scale("colour", "hp", hp_pal(option, alpha, begin, end, direction), ...)
 	} else {
-		scale_color_gradientn(colours = hp(256, alpha, begin, end, direction, option), ...)
+		scale_color_gradientn(colours = hp(256, option, alpha, begin, end, direction), ...)
 	}
 }
 
@@ -155,12 +177,12 @@ scale_colour_hp <- scale_color_hp
 #' @rdname scale_hp
 #' @aliases scale_color_hp
 #' @export
-scale_colour_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
-															 direction = 1, option = "Hufflepuff") {
+scale_colour_hp_d <- function(option = "Hufflepuff", ..., alpha = 1, begin = 0, end = 1,
+															 direction = 1) {
 	ggplot2::discrete_scale(
 		aesthetics = "colour",
 		"hp_d",
-		hp_pal(alpha, begin, end, direction, option),
+		hp_pal(alpha, option, begin, end, direction),
 		...
 	)
 }
@@ -174,12 +196,12 @@ scale_color_hp_d <- scale_colour_hp_d
 #' @rdname scale_hp
 #' @aliases scale_fill_hp
 #' @export
-scale_fill_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
-														 direction = 1, option = "Hufflepuff") {
+scale_fill_hp_d <- function(option = 'Always', ..., alpha = 1, begin = 0, end = 1,
+														 direction = 1) {
 	discrete_scale(
 		aesthetics = "fill",
 		"hp_d",
-		hp_pal(alpha, begin, end, direction, option),
+		hp_pal(option = , alpha, begin, end, direction),
 		...
 	)
 }
@@ -200,6 +222,9 @@ harrypotter <- hp
 #' number of colors.
 #'
 #'
+#' @param option A character string indicating the colourmap  to use.
+#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
+#'
 #' @param ... parameters to \code{discrete_scale} or \code{scale_fill_gradientn}
 #'
 #' @param alpha pass through parameter to \code{hp}
@@ -213,8 +238,6 @@ harrypotter <- hp
 #'
 #' @param discrete generate a discrete palette? (default: \code{FALSE} - generate continuous palette)
 #'
-#' @param option A character string indicating the colourmap  to use.
-#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
 #' @param house A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 #' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
@@ -248,8 +271,8 @@ harrypotter <- hp
 #'
 #'
 #' @export
-scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-															 discrete = FALSE, option = "hufflepuff", house = NULL) {
+scale_fill_hp <- function(option = "hufflepuff", ..., alpha = 1, begin = 0, end = 1, direction = 1,
+															 discrete = FALSE, house = NULL) {
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
@@ -257,8 +280,8 @@ scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 	option <- gsub("\\_", "", option, fixed = FALSE)
 
 	if (discrete) {
-		discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, option), ...)
+		discrete_scale("fill", "hp", hp_pal(option, alpha, begin, end, direction), ...)
 	} else {
-		scale_fill_gradientn(colours = hp(256, alpha, begin, end, direction, option), ...)
+		scale_fill_gradientn(colours = hp(256, option, alpha, begin, end, direction), ...)
 	}
 }
