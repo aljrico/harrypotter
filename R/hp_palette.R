@@ -171,6 +171,7 @@ scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
 
 #' @rdname scale_hp
 #' @aliases scale_color_hp
+#' @importFrom ggplot2 discrete_scale
 #' @export
 scale_colour_hp <- scale_color_hp
 
@@ -179,12 +180,7 @@ scale_colour_hp <- scale_color_hp
 #' @export
 scale_colour_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
 															direction = 1, option = 'Always') {
-	ggplot2::discrete_scale(
-		aesthetics = "colour",
-		"hp_d",
-		hp_pal(alpha, begin, end, direction, option),
-		...
-	)
+	discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, option), ...)
 }
 
 #' @rdname scale_hp
@@ -195,15 +191,11 @@ scale_color_hp_d <- scale_colour_hp_d
 
 #' @rdname scale_hp
 #' @aliases scale_fill_hp
+#' @importFrom ggplot2 discrete_scale
 #' @export
 scale_fill_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
 														direction = 1, option = 'Always') {
-	discrete_scale(
-		aesthetics = "fill",
-		"hp_d",
-		hp_pal(alpha, begin, end, direction, option),
-		...
-	)
+	discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, option), ...)
 }
 
 

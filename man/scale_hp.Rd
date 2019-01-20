@@ -9,28 +9,25 @@
 \alias{scale_fill_hp}
 \title{Harry Potter colour scales}
 \usage{
-scale_color_hp(option = "hufflepuff", ..., alpha = 1, begin = 0,
-  end = 1, direction = 1, discrete = FALSE, house = NULL)
+scale_color_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
+  discrete = FALSE, option = "Always", house = NULL)
 
-scale_colour_hp(option = "hufflepuff", ..., alpha = 1, begin = 0,
-  end = 1, direction = 1, discrete = FALSE, house = NULL)
+scale_colour_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
+  discrete = FALSE, option = "Always", house = NULL)
 
-scale_colour_hp_d(option = "Hufflepuff", ..., alpha = 1, begin = 0,
-  end = 1, direction = 1)
+scale_colour_hp_d(..., alpha = 1, begin = 0, end = 1,
+  direction = 1, option = "Always")
 
-scale_color_hp_d(option = "Hufflepuff", ..., alpha = 1, begin = 0,
-  end = 1, direction = 1)
+scale_color_hp_d(..., alpha = 1, begin = 0, end = 1, direction = 1,
+  option = "Always")
 
-scale_fill_hp_d(option = "Always", ..., alpha = 1, begin = 0,
-  end = 1, direction = 1)
+scale_fill_hp_d(..., alpha = 1, begin = 0, end = 1, direction = 1,
+  option = "Always")
 
-scale_fill_hp(option = "hufflepuff", ..., alpha = 1, begin = 0,
-  end = 1, direction = 1, discrete = FALSE, house = NULL)
+scale_fill_hp(..., alpha = 1, begin = 0, end = 1, direction = 1,
+  discrete = FALSE, option = "Always", house = NULL)
 }
 \arguments{
-\item{option}{A character string indicating the colourmap  to use.
-Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
-
 \item{...}{parameters to \code{discrete_scale} or \code{scale_fill_gradientn}}
 
 \item{alpha}{pass through parameter to \code{hp}}
@@ -43,6 +40,9 @@ Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuf
 are as output by \code{hp_pal}. If -1, the order of colors is reversed.}
 
 \item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
+
+\item{option}{A character string indicating the colourmap  to use.
+Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 
 \item{house}{A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}

@@ -6,20 +6,17 @@
 \alias{harrypotter}
 \title{Harry Potter Colour Map.}
 \usage{
-hp(n, option = "hufflepuff", alpha = 1, begin = 0, end = 1,
-  direction = 1, house = NULL)
+hp(n, alpha = 1, begin = 0, end = 1, direction = 1,
+  option = "Always", house = NULL)
 
-hp_pal(option = "Always", alpha = 1, begin = 0, end = 1,
-  direction = 1, house = NULL)
+hp_pal(alpha = 1, begin = 0, end = 1, direction = 1,
+  option = "Always", house = NULL)
 
-harrypotter(n, option = "hufflepuff", alpha = 1, begin = 0,
-  end = 1, direction = 1, house = NULL)
+harrypotter(n, alpha = 1, begin = 0, end = 1, direction = 1,
+  option = "Always", house = NULL)
 }
 \arguments{
 \item{n}{The number of colors (\eqn{\ge 1}) to be in the palette.}
-
-\item{option}{A character string indicating the colourmap from a option to use.
-Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 
 \item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
 \code{\link[grDevices]{hsv}}.}
@@ -30,6 +27,9 @@ Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuf
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
+
+\item{option}{A character string indicating the colourmap from a option to use.
+Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 
 \item{house}{A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
@@ -67,7 +67,7 @@ dat <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 ggplot(dat, aes(x = x, y = y)) +
   geom_hex() +
   coord_fixed() +
-  scale_fill_gradientn(colours = hp(128, option = "Always", direction = - 1))
+  scale_fill_gradientn(colours = hp(128, option = 'Always'))
 
 pal <- hp(256, option = "Ravenclaw")
 image(volcano, col = pal)
