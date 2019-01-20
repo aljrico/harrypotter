@@ -182,7 +182,7 @@ scale_colour_hp_d <- function(option = "Hufflepuff", ..., alpha = 1, begin = 0, 
 	ggplot2::discrete_scale(
 		aesthetics = "colour",
 		"hp_d",
-		hp_pal(alpha, option, begin, end, direction),
+		hp_pal(option, alpha, begin, end, direction),
 		...
 	)
 }
@@ -201,7 +201,7 @@ scale_fill_hp_d <- function(option = 'Always', ..., alpha = 1, begin = 0, end = 
 	discrete_scale(
 		aesthetics = "fill",
 		"hp_d",
-		hp_pal(option = , alpha, begin, end, direction),
+		hp_pal(option, alpha, begin, end, direction),
 		...
 	)
 }

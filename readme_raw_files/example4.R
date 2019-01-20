@@ -23,7 +23,7 @@ ggsave("examples/ronweasley_bar.png", gg, width = 300, height = 110, units = "mm
 dsamp <- diamonds[sample(nrow(diamonds), 1000), ]
 gg <- ggplot(dsamp, aes(carat, price)) +
 	geom_point(aes(colour = clarity)) +
-	scale_colour_hp_d(option = "LunaLovegood", name = "Clarity") +
+	scale_colour_hp(discrete = TRUE, option = "LunaLovegood", name = "Clarity") +
 	xlab("Carat") +
 	ylab("Price")
 
