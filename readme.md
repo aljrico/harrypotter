@@ -39,7 +39,7 @@ library(harrypotter)
 Usage
 -----
 
-The default colour scale of the package is the one of the house *Hufflepuff*. If you prefer to choose another one, you'll need to specify which house you want the palette from.
+The default colour scale of the package is the one named **Always**. If you prefer to choose another one, you'll need to specify which house you want the palette from.
 
 You can get started using base R plot functions, and the `hp()` function. Its first argument `n` lets you set the number of colours to be mapped. This way you can set different resolutions. Let's say that you want a palette made from the house **Gryffindor**, then just type `option = "Gryffindor"`. 
 
