@@ -7,7 +7,7 @@ map <- list()
 slytherin <- c("#C2C5C0", "#A6B39C", "#8BA27C", "#6A915F", "#4C7F46", "#316E31", "#1F5D25")
 gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
 hufflepuff <- c("#000000", "#372E29", "#726255", "#F0C75E", "#ECB939")
-#ravenclaw <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
+ravenclaw2 <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
 luna_lovegood <- c("#084D49", "#276C69", "#189BA0", "#73C1C4", "#BF8699", "#A64264", "#830042")
 #draco_malfoy <- c("#000906", "#003C2E", "#45977A", "#4B7366", "#97946E", "#C9DFD2")
 #ron_weasley <- c("#FF6400", "#FFAA33", "#6C737E", "#3D3A57", "#61002E")
@@ -28,14 +28,17 @@ harry_potter <- c("#99000D", "#B32C12", "#B36C24", "#B3B336", "#92B351", "#8EB37
 draco_malfoy <- c("#00332A", "#004D33", "#0F6642", "#3F8C52", "#77B36B", "#D9D962", "#F2F26D")
 newt_scamander <- c("#FEDA26", "#CCB233", "#CCBE7A", "#D9D2AD", "#6CB6D9", "#3091BF", "#0072A6")
 ron_weasley <- c("#6D0036", "#860000", "#860000", "#852E19", "#CE8B14", "#EA9400", "#FFA000")
+ronweasley2 <- c('#5F0032', '#3F385A', '#6E6E82', '#FFAA00', '#FF7A33')
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
 								hufflepuff = hufflepuff,
 								ravenclaw = ravenclaw,
+								ravenclaw2 = ravenclaw2,
 								lunalovegood = luna_lovegood,
 								dracomalfoy = draco_malfoy,
 								ronweasley = ron_weasley,
+								ronweasley2 = ronweasley2,
 								harrypotter = harry_potter,
 								hermionegranger = hermione_granger,
 								always = always,
