@@ -6,7 +6,7 @@ Authors@R: c(
     person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre")),
     person("Alfredo", "Hernandez", email = "aldomann.designs@gmail.com", role = "ctb"))
 Maintainer: Alejandro Jimenez Rico <aljrico@gmail.com>
-Description: Implementation of the characteristic palette of the houses of Hogwarts School of magic, present in all Harry Potter movies.
+Description: Implementation of characteristic palettes inspired in the Wizarding World and the Harry Potter movie franchise.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: TRUE
