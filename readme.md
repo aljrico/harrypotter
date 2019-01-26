@@ -1,8 +1,6 @@
 
 # harrypotter <img src="man/figures/logo.jpg" align="right" width="120" />
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/hogwarts-houses.png"></center>
-
 
 [![cran version](http://www.r-pkg.org/badges/version/harrypotter)](https://cran.r-project.org/package=harrypotter)
 [![rstudio mirror per-month downloads](http://cranlogs.r-pkg.org/badges/harrypotter)](https://github.com/metacran/cranlogs.app)
