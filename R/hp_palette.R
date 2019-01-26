@@ -154,8 +154,8 @@ hp_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = 'Alway
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #'
 #' @export
-scale_color_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-													 discrete = FALSE, option = 'Always', house = NULL) {
+scale_color_hp <- function(option = 'Always', ..., alpha = 1, begin = 0, end = 1, direction = 1,
+													 discrete = FALSE, house = NULL) {
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
@@ -178,8 +178,8 @@ scale_colour_hp <- scale_color_hp
 #' @rdname scale_hp
 #' @aliases scale_color_hp
 #' @export
-scale_colour_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
-															direction = 1, option = 'Always') {
+scale_colour_hp_d <- function(option = 'Always', ..., alpha = 1, begin = 0, end = 1,
+															direction = 1) {
 	discrete_scale("colour", "hp", hp_pal(alpha, begin, end, direction, option), ...)
 }
 
@@ -193,8 +193,8 @@ scale_color_hp_d <- scale_colour_hp_d
 #' @aliases scale_fill_hp
 #' @importFrom ggplot2 discrete_scale
 #' @export
-scale_fill_hp_d <- function(..., alpha = 1, begin = 0, end = 1,
-														direction = 1, option = 'Always') {
+scale_fill_hp_d <- function(option = 'Always', ..., alpha = 1, begin = 0, end = 1,
+														direction = 1) {
 	discrete_scale("fill", "hp", hp_pal(alpha, begin, end, direction, option), ...)
 }
 
@@ -262,8 +262,8 @@ harrypotter <- hp
 #'
 #'
 #' @export
-scale_fill_hp <- function(..., alpha = 1, begin = 0, end = 1, direction = 1,
-													discrete = FALSE, option = 'Always', house = NULL) {
+scale_fill_hp <- function(option = 'Always', ..., alpha = 1, begin = 0, end = 1, direction = 1,
+													discrete = FALSE, house = NULL) {
 
 	if(!is.null(house)) option <- house
 	option <- tolower(option)
