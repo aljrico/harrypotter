@@ -1,4 +1,6 @@
 
+# harrypotter <img src="man/figures/logo.jpg" align="right" width="120" />
+
 <center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/hogwarts-houses.png"></center>
 
 
