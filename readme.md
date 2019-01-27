@@ -1,5 +1,5 @@
 
-# harrypotter <img src="man/figures/logo.jpg" align="right" width="120" />
+# harrypotter <img src="man/figures/logo.png" align="right" width="120" />
 
 
 [![cran version](http://www.r-pkg.org/badges/version/harrypotter)](https://cran.r-project.org/package=harrypotter)
