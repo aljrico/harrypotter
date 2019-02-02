@@ -6,6 +6,7 @@ map <- list()
 # Define colours
 slytherin <- c("#C2C5C0", "#A6B39C", "#8BA27C", "#6A915F", "#4C7F46", "#316E31", "#1F5D25")
 gryffindor <- c("#5C0000", "#890000", "#C50000", "#FB7E00", "#FFA700")
+gryffindor2 <- c("#5f1416", "#803525", "#a05535", "#bf7746", "#dc9b5a")
 hufflepuff <- c("#000000", "#372E29", "#726255", "#F0C75E", "#ECB939")
 ravenclaw2 <- c("#0D6585", "#089EC7", "#BA9368", "#735145", "#2B1C13")
 luna_lovegood <- c("#084D49", "#276C69", "#189BA0", "#73C1C4", "#BF8699", "#A64264", "#830042")
