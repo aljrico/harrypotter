@@ -33,6 +33,7 @@ ronweasley2 <- c('#5F0032', '#3F385A', '#6E6E82', '#FFAA00', '#FF7A33')
 
 options <- list(slytherin = slytherin,
 								gryffindor = gryffindor,
+								gryffindor2 = gryffindor,
 								hufflepuff = hufflepuff,
 								ravenclaw = ravenclaw,
 								ravenclaw2 = ravenclaw2,
