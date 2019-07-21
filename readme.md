@@ -72,19 +72,19 @@ ggplot(data.frame(x = rnorm(1e4), y = rnorm(1e4)), aes(x = x, y = y)) +
 	theme_bw()
 ```
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-6-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/blog/master/_posts/images/unnamed-chunk-6-1.png" ></center>
 
 
 or more made-up heatmaps:
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/unnamed-chunk-8-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/blog/master/_posts/images/unnamed-chunk-8-1.png" ></center>
 
 
 Using the same function we can also plot these cloropleth maps of U.S. unemployment:
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/ggplot2-1.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/blog/master/_posts/images/ggplot2-1.png" ></center>
 
-<center><img src="https://raw.githubusercontent.com/aljrico/aljrico.github.io/master/_posts/images/ggplot2-2.png" ></center>
+<center><img src="https://raw.githubusercontent.com/aljrico/blog/master/_posts/images/ggplot2-2.png" ></center>
 
 
 ### Discrete Scales
