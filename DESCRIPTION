@@ -1,7 +1,7 @@
 Package: harrypotter
 Type: Package
 Title: Palettes Generated from All "Harry Potter" Movies
-Version: 2.1.0
+Version: 2.1.1
 Authors@R: c(
     person("Alejandro", "Jimenez Rico", email = "aljrico@gmail.com", role = c("aut", "cre")),
     person("Alfredo", "Hernandez", email = "aldomann.designs@gmail.com", role = "ctb"))

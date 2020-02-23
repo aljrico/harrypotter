@@ -4,6 +4,8 @@
 
 * New `gryffindor2` palette available.
 
+* Now you can check all the names of available palettes by typing `names(hp_palettes)`.
+
 # harrypotter 2.1.0
 
 * `house` argument is officially *deprecated*. New argument `option` should be used instead. Functionality is absolutely equal. This change adds consistency with other similar packages and opens the possibility to add more palette options, outside the Hogwarts Houses. 
