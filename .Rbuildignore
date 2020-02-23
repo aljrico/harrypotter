@@ -10,3 +10,4 @@ readme.md
 readme_files/
 readme*
 vignette/
+^data-raw$
