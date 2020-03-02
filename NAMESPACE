@@ -3,7 +3,6 @@
 export(harrypotter)
 export(hp)
 export(hp_pal)
-export(hp_palettes)
 export(scale_color_hp)
 export(scale_color_hp_d)
 export(scale_colour_hp)

@@ -17,6 +17,4 @@
 #' This list contains all the available palettes in the 'harrypotter' package.
 #'
 #'@format A list containing all palettes color codes.
-#'
-#' @export
 "hp_palettes"
