@@ -51,8 +51,7 @@ are ordered from darkest to lightest. If -1, the order of colors is reversed.}
 \item{option}{A character string indicating the colourmap from a option to use.
 Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
 
-\item{house}{A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
-Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
+\item{house}{Depcreated. Use 'option' instead.}
 }
 \value{
 \code{hp} returns a character vector, \code{cv}, of color hex
@@ -65,17 +64,6 @@ This function creates a vector of \code{n} equally spaced colors along the
 'HP colour map' of your selection
 }
 \details{
-\if{html}{Here are the color scales:
-
-  \out{<div style="text-align: center">}\figure{hogwarts-scales.png}{houses: style="width:750px;max-width:90\%;"}\out{</div>}
-
-  }
-\if{latex}{Here are the color scales:
-
-  \out{\begin{center}}\figure{hogwarts-scales.png}\out{\end{center}}
-  }
-
-
 Semi-transparent colors (\eqn{0 < alpha < 1}) are supported only on some
 devices: see \code{\link[grDevices]{rgb}}.
 }
