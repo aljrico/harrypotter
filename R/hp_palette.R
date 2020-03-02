@@ -18,8 +18,7 @@
 #' @param option A character string indicating the colourmap from a option to use.
 #' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
 #'
-#' @param house A character string indicating the colourmap from a option to use. This parameter is deprectaed, 'option' should be used instead.
-#' Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".
+#' @param house Depcreated. Use 'option' instead.
 #'
 #' @return \code{hp} returns a character vector, \code{cv}, of color hex
 #' codes. This can be used either to create a user-defined color palette for
@@ -30,15 +29,6 @@
 #'
 #' @details
 #'
-#' \if{html}{Here are the color scales:
-#'
-#'   \out{<div style="text-align: center">}\figure{hogwarts-scales.png}{houses: style="width:750px;max-width:90\%;"}\out{</div>}
-#'
-#'   }
-#' \if{latex}{Here are the color scales:
-#'
-#'   \out{\begin{center}}\figure{hogwarts-scales.png}\out{\end{center}}
-#'   }
 #'
 #'
 #' Semi-transparent colors (\eqn{0 < alpha < 1}) are supported only on some
