@@ -14,7 +14,7 @@ Depends:
     R (>= 2.10)
 Suggests:
     hexbin (>= 1.27.0),
-    testthat
+    testthat (>= 2.1.0)
 URL: https://github.com/aljrico/harrypotter
 BugReports: https://github.com/aljrico/harrypotter/issues
 Imports: 
