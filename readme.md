@@ -205,4 +205,4 @@ option = "Ravenclaw"
 
 # Acknowledgments
 
-* Special thanks to my buddy [Alfredo](aldomann.com) for designing the logo.
+* Special thanks to my buddy [Alfredo](https://aldomann.com) for designing the logo.
