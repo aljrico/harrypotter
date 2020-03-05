@@ -202,3 +202,7 @@ option = "Ravenclaw"
 ```
 
 <center><img src="https://raw.githubusercontent.com/aljrico/harrypotter/master/readme_raw_files/palettes/ravenclaw.png" width= "75%"; height = "75%"></center>
+
+# Acknowledgments
+
+* Special thanks to my buddy [Alfredo](aldomann.com) for designing the logo.
