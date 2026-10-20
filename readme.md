@@ -45,10 +45,10 @@ You can get started using base R plot functions, and the `hp()` function. Its fi
 
 
 ```r
-pal <- hp(n = 8, house = "Gryffindor")
+pal <- hp(n = 8, option = "Gryffindor")
 image(volcano, col = pal)
 
-pal <- hp(n = 128, house = "Gryffindor")
+pal <- hp(n = 128, option = "Gryffindor")
 image(volcano, col = pal)
 ```
 

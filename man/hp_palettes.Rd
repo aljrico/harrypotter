@@ -4,7 +4,9 @@
 \name{hp_palettes}
 \alias{hp_palettes}
 \title{Available Palettes.}
-\format{A list containing all palettes color codes.}
+\format{
+A list containing all palettes color codes.
+}
 \usage{
 hp_palettes
 }

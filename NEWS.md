@@ -1,3 +1,12 @@
+# harrypotter 2.1.2
+
+* Ships the roxygen NAMESPACE again, so only the documented functions are exported.
+* `discrete_scale()` is called with a named `palette`, ready for ggplot2 dropping `scale_name`.
+* `hp()` caches each palette's colour ramp, so repeated calls are much faster.
+* An unknown `option` now gives a clear error.
+* `house` now warns that it is deprecated. It will be removed in the next release; use `option`.
+* Drops the unused `gridExtra` dependency.
+
 # harrypotter 2.1.1
 
 * Now 'option' is the first parameter on `scale_fill_hp()` and `scale_colour_hp()`. As it is the most common specified parameter, this change makes its use more natural and easy.

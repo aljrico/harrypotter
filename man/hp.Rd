@@ -38,20 +38,20 @@ harrypotter(
 \arguments{
 \item{n}{The number of colors (\eqn{\ge 1}) to be in the palette.}
 
-\item{alpha}{The alpha transparency, a number in [0,1], see argument alpha in
+\item{alpha}{The alpha transparency, a number in \verb{[0,1]}, see argument alpha in
 \code{\link[grDevices]{hsv}}.}
 
-\item{begin}{The (corrected) hue in [0,1] at which the hp colormap begins.}
+\item{begin}{The (corrected) hue in \verb{[0,1]} at which the hp colormap begins.}
 
-\item{end}{The (corrected) hue in [0,1] at which the hp colormap ends.}
+\item{end}{The (corrected) hue in \verb{[0,1]} at which the hp colormap ends.}
 
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
 
-\item{option}{A character string indicating the colourmap from a option to use.
-Four houses are available: "Gryffindor", "Slytherin", "Ravenclaw" and "Hufflepuff".}
+\item{option}{A character string indicating the colourmap to use. Case, spaces and
+underscores are ignored. See \code{names(hp_palettes)} for the available options.}
 
-\item{house}{Depcreated. Use 'option' instead.}
+\item{house}{Deprecated. Use 'option' instead.}
 }
 \value{
 \code{hp} returns a character vector, \code{cv}, of color hex
